@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Din Pro 900';
+    src: url('./../fonts/DINPro900.otf') format('Opentype');
+}
+  
+@font-face {
+font-family: 'Din Pro 500';
+src: url('./../fonts/DINPro500.otf') format('Opentype');
+}
+
+@font-face {
+    font-family: 'Din Pro Cond 500';
+    src: url('./../fonts/DINProCond500.otf') format('Opentype');
+    }
+
+@font-face {
+font-family: 'Din Pro 400';
+src: url('./../fonts/DINPro400.otf') format('Opentype');
+}
