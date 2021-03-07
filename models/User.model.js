@@ -8,7 +8,12 @@ const userSchema = new Schema ({
     want_to_play: [{type: Schema.Types.ObjectId,  ref: "games"}],
     current_play: [{type: Schema.Types.ObjectId,  ref: "games"}],
     already_played: [{type: Schema.Types.ObjectId,  ref: "games"}],
-    playlist: [{type: Schema.Types.ObjectId,  ref: "games"}]
+    playlist: [
+        {name : String, 
+        games : [
+            {type: Schema.Types.ObjectId,  ref: "games"}
+        ]},
+    ]
 });
 
 const UserModel = mongoose.model("users", userSchema);
