@@ -1,0 +1,156 @@
+@font-face {
+  font-family: 'Din Pro Black';
+  src: url('./../fonts/DINPro-Black.otf') format('Opentype');
+}
+
+@font-face {
+  font-family: 'Din Pro Medium';
+  src: url('./../fonts/DINPro-Medium.otf') format('Opentype');
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  background-color: rgba(0, 3, 28, 1);
+
+}
+
+#main-container {
+  margin: 0 80px;
+}
+
+/* NAV BAR  */
+
+#nav-bar {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 80px 60px 80px;
+  padding-top: 40px;
+}
+
+#nav-bar a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#search-navbar {
+  display: flex;
+}
+
+#search-navbar a {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  border: 1px solid rgba(192, 194, 245, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#search-navbar a:nth-child(1) {
+  margin-right: 16px;
+}
+
+/* VIDEO BACKGROUND  */
+
+#videoBG {
+  position: absolute;
+  top: 0; 
+  z-index: -1;
+  width: 100%;
+}
+
+/* TITLE HOME PAGE */
+
+#title-home-container {
+  text-transform: uppercase;
+}
+
+#title-home-container h1 {
+  margin-bottom: 16px;
+  font-family: 'Din Pro Black';
+  font-size: 110px;
+  line-height: 84%;
+  color:rgba(240, 240, 255, 1);
+  user-select: none;
+}
+
+#title-home-container h2 {
+  margin-bottom: 52px;
+  font-family: 'Din Pro Medium';
+  font-size: 32px;
+  line-height: 100%;
+  color: rgba(192, 194, 245, 1);
+  user-select: none;
+}
+
+#title-home-container h1 {
+  animation: text-appear 1s;
+}
+
+@keyframes text-appear {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#title-home-container h2 {
+  animation: text-appear2 1s;
+}
+
+@keyframes text-appear2 {
+  from {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* SEARCH BAR  */
+
+#search-bar {
+  max-width: 80%;
+  width: 100%;
+  padding: 28px 24px;
+  background-color: rgba(0, 3, 28, 0.6);
+  border-radius: 1000px;
+  border: 1px solid rgba(192, 194, 245, 0.3);
+  font-family: 'Din Pro Medium';
+  font-size: 32px;
+  line-height: 38px;
+  color: rgba(255, 255, 255, 1);
+  transition: max-width 0.3s ease-out;
+}
+
+#search-bar::placeholder {
+  color: rgba(192, 194, 245, 0.4);
+}
+
+#search-bar:focus {
+  outline: none;
+  max-width:100%;
+  transition: max-width 0.3s ease-out;
+}
+
+#search-bar + img {
+  position: absolute;
+  top: 40px;
+  right: 32px;
+}
+
+
+
