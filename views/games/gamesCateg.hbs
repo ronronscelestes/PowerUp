@@ -1,5 +1,8 @@
-<h1>ALL GAMES CATEGORIES PAGE</h1>
-
-{{#each gamesFound}}
-    <li>{{this.name}}</li>
-{{/each}}
+<div id="main-container">
+    <h1 class="result-title">Search results</h1>
+    <section id="card-gallery">
+        {{#each games}}
+            {{> gameCard}}
+        {{/each}}
+    </section>
+</div>

@@ -6,7 +6,8 @@ let UserModel= require('./../models/User.model')
 /* GET home page. */
 router.get('/', (req, res, next) => {
   let data = {
-    css : ['index', 'card']
+    css : ['index', 'card'],
+    js : ['search-mainbar'],
   }
   console.log(req.session.isLoggedIn);
   res.render('index', data);

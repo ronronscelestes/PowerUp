@@ -1,12 +1,26 @@
-<div id="card-container" style="background-image: url('https://static-assets-prod.epicgames.com/fortnite/static/webpack/8f9484f10eb14f85a189fb6117a57026.jpg');">
+<div id="card-container" style="background-image: url('{{this.background_image}}');">
     {{!-- link to game detail page --}}
-    <a href=""></a>
+    <a href="">
     <div id="card-content">
         <div id="top-content">
-            
+            {{#if this.metacritic}}
+            <div class="rating"><p>{{this.metacritic}}</p></div>
+            {{/if}}
         </div>
         <div id="bottom-content">
+            <h4 class="card-title">{{this.name}}</h4>
+            <p class="card-genre">
+                {{#each this.genres}}
+                    <span class="tag-genre">{{this}}</span>
+                {{/each}}
+            </p>
+            <p class="card-platforms">
+                {{#each platforms}}
+                    / {{this}}
+                {{/each}}    
+            </p>
 
         </div>
     </div>
+    </a>
 </div>

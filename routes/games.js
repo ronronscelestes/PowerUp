@@ -9,11 +9,14 @@ router.get('/', (req, res, next) => {
 
 router.get('/search', async (req, res, next) => {
     try {
-        console.log(req.query)
-        console.log(req.query.name)
         const gamesFound = await GameModel.find( { name : new RegExp(req.query.name, 'i') } )
-        res.render("games/gamesCateg", {gamesFound})
         
+        let data = {
+            games: gamesFound,
+            css: ['index', 'card', 'allGames'],
+            js: ['rating-color']
+          }
+        res.render("games/gamesCateg", data)
     } catch(err) {
         console.log(err);
         next(err);
