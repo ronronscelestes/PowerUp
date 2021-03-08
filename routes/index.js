@@ -4,7 +4,8 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', (req, res, next) => {
   let data = {
-    css : ['index', 'card']
+    css : ['index', 'card'],
+    js : ['search-mainbar'],
   }
   res.render('index', data);
 });
