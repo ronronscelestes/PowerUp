@@ -1,1 +1,36 @@
 <h1>PROFILE PAGE</h1>
+
+
+{{user.username}}
+{{user.mail}}
+
+<button id="all">All</button>
+<button id="WantToPlay">WantToPlay</button>
+<button id="AlreadyPlayed">AlreadyPlayed</button>
+<button id="CurrentPlay">CurrentPlay</button>
+
+
+
+
+{{!-- <h2>wantToPlay</h2> --}}
+{{#each user.wantToPlay}}
+<div>{{this}}</div>
+{{!-- <button class="moveToCurrentPlay" >CurrentPlay</button>
+<button class="moveToAlreadyPlayed" >Alreadyplayed</button> --}}
+{{/each}}
+
+{{!-- <h2>CurrentPlay</h2> --}}
+<div>
+{{#each user.currentPlay}}
+<div>{{this}}</div>
+{{!-- <button class="moveToWantToPlay" >WantToPlay</button>
+<button class="moveToAlreadyPlayed" >Alreadyplayed</button> --}}
+{{/each}}
+</div>
+
+{{!-- <h2>alreadyPlayed</h2> --}}
+{{#each user.alreadyPlayed}}
+<div>{{this}}</div>
+{{!-- <button class="moveToWantToPlay" >WantToPlay</button>
+<button class="moveToCurrentPlay" >CurrentPlay</button> --}}
+{{/each}}

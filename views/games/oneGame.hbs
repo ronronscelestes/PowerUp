@@ -1,1 +1,37 @@
 <h1>ONE GAME PAGE</h1>
+
+<h2>{{game.name}}</h2>
+<p>{{game.description}}</p>
+<p>{{game.background_image}}</p>
+<p>{{game.developers}} </p>
+<p>{{game.metacritic}} </p>
+<p>{{game.genres}} </p>
+<p>{{game.platforms}}</p>
+<p>{{game.website}}  </p>
+<p>{{game.released}} </p>
+
+
+{{!-- <form method="POST" action="/game/{{game._id}}" class="">
+<select name="game-status" id="game-status">
+<option value="current_play">Currently playing</option>
+<option value="already_played">Completed</option>
+<option value="want_to_play">Wishlist</option>
+</select>
+<button>OK!</button>
+</form>
+ --}}
+
+
+<form method="POST" action="/game/{{game._id}}" class="">
+<label for="currentPlay">currentPlay</label>
+{{!-- <input type="hidden" name="currentPlay" value="0"> --}}
+<input type="checkbox" name="currentPlay" value="currentPlay">
+<label for="already_played">already_played</label>
+{{!-- <input type="hidden" name="alreadyPlayed" value="0"> --}}
+<input type="checkbox" name="alreadyPlayed" value="alreadyPlayed">
+<label for="wantToPlay">want_to_play</label>
+{{!-- <input type="hidden" name="wantToPlay" value="0"> --}}
+<input type="checkbox" name="wantToPlay" value="wantToPlay">
+<button>OK !</button>
+</form>
+ 
