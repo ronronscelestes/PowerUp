@@ -26,18 +26,25 @@ router.post('/game/:id', (req, res, next)=>{
   let {currentPlay, alreadyPlayed,  wantToPlay}=req.body
   if (currentPlay!==undefined){
     // currentPlay = req.params.id
-    UserModel.findByIdAndUpdate({_idUser},{$push:{currentPlay: req.params.id}}, { $pull: { alreadyPlayed: req.params.id,  wantToPlay : req.params.id } } )
-    .then(()=>res.render('profile/profile'))
+    UserModel.findByIdAndUpdate('60463007c32e21f0681ce165',{$pull:{alreadyPlayed: req.params.id, wantToPlay : req.params.id }, $push:{currentPlay:req.params.id}}, {new:true} )
+    .then((dbresult)=>{
+      console.log(dbresult);  
+      res.redirect('/profile')})
   } 
-  if (alreadyPlayed !== undefined){
+  else if (alreadyPlayed !== undefined){
     // alreadyPlayed = req.params.id
-    UserModel.findByIdAndUpdate({_idUser},{$push:{alreadyPlayed: req.params.id}}, { $pull: { currentPlay: req.params.id,  wantToPlay : req.params.id } } )
-    .then(()=>res.render('profile/profile'))
-  }
-  if(wantToPlay!==undefined){
+    UserModel.findByIdAndUpdate('60463007c32e21f0681ce165',{$push:{alreadyPlayed: req.params.id},  $pull: { currentPlay: req.params.id,  wantToPlay : req.params.id } }, {new:true})
+    .then((dbresult)=>{
+            console.log(dbresult)
+
+            res.redirect('/profile')})
+          }
+  else if(wantToPlay!==undefined){
     // wantToPlay = req.params.id
-    UserModel.findByIdAndUpdate({_idUser},{$push:{wantToPlay: req.params.id}}, { $pull: { currentPlay: req.params.id,  alreadyPlayed : req.params.id } } )
-    .then(()=>res.render('profile/profile'))
+    UserModel.findByIdAndUpdate('60463007c32e21f0681ce165',{$push: {wantToPlay: req.params.id}, $pull: { currentPlay: req.params.id,  alreadyPlayed : req.params.id } }, {new:true})
+    .then((dbresult)=>{
+      console.log(dbresult)
+      res.redirect('/profile')})
   }
 })
 

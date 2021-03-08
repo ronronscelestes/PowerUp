@@ -1,1 +1,25 @@
-<h1>SIGN IN PAGE</h1>
+{{!-- BGtest moins lourd en attendant le déploiement  --}}
+{{!-- <video id="videoBG" autoplay muted loop>
+    <source src="/images/BGtest.mp4" type="video/mp4">
+</video> --}}
+
+<div id="all-container">
+    <div id="signup-container">
+        <p>you don't have an account?</p>
+        <a href="">click here to sign up <img id="sign-in-icon" src="/images/auth-arrow.svg" alt=""></a>
+        <h1>log in</h1>
+
+        <form action="/auth/signin" method="POST">
+            <label for="mail">email address</label>
+            <input name="mail" id="mail" type="email" placeholder="catch-em-all@pokemon.com" value="test@testmail.fr">
+
+            <label for="password">password</label>
+            <input name="password" id="password" type="password" placeholder="Secret password" value="hello">
+
+            <button>
+                <img id="sign-in-icon" src="/images/signin-arrow.svg" alt="">
+                confirm
+            </button>
+        </form>
+    </div>
+</div>
