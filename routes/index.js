@@ -16,11 +16,26 @@ router.get('/', (req, res, next) => {
 
 
 /*Game Page*/
+// router.get('/game/:id', (req, res, next)=>{
+// GameModel.findById(req.params.id)
+// .then((game)=>{
+//   res.render('games/oneGame', {game})})
+// .catch(next)
+// })
+
 router.get('/game/:id', (req, res, next)=>{
-GameModel.findById(req.params.id)
-.then((game)=>{
-  res.render('games/oneGame', {game})})
-.catch(next)
+  GameModel.findById(req.params.id)
+  .then((game)=>{
+
+    let data = {
+      game : game,
+      css : ['oneGame']
+    }
+
+    res.render('games/oneGame', data)
+  
+  })
+  .catch(next)
 })
 
 router.post('/game/:id', (req, res, next)=>{

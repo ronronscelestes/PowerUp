@@ -1,3 +1,5 @@
+<div id="background" style="background-image: url({{game.background_image}});"></div>
+
 <h1>ONE GAME PAGE</h1>
 
 <h2>{{game.name}}</h2>
@@ -9,18 +11,6 @@
 <p>{{game.platforms}}</p>
 <p>{{game.website}}  </p>
 <p>{{game.released}} </p>
-
-
-{{!-- <form method="POST" action="/game/{{game._id}}" class="">
-<select name="game-status" id="game-status">
-<option value="current_play">Currently playing</option>
-<option value="already_played">Completed</option>
-<option value="want_to_play">Wishlist</option>
-</select>
-<button>OK!</button>
-</form>
- --}}
-
 
 <form method="POST" action="/game/{{game._id}}" class="">
 <label for="currentPlay">currentPlay</label>
@@ -34,4 +24,19 @@
 <input type="checkbox" name="wantToPlay" value="wantToPlay">
 <button>OK !</button>
 </form>
+
+
+
+
+
+{{!-- <form method="POST" action="/game/{{game._id}}" class="">
+<select name="game-status" id="game-status">
+<option value="current_play">Currently playing</option>
+<option value="already_played">Completed</option>
+<option value="want_to_play">Wishlist</option>
+</select>
+<button>OK!</button>
+</form>
+ --}}
+
  
