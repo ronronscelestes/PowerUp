@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 const UserModel = require('./../models/User.model');
 
-/* GET users listing. */
+//GET SIGNUP
 router.get('/signup', (req, res, next) => {
   let data = {
     css : ['auth']
@@ -12,6 +12,7 @@ router.get('/signup', (req, res, next) => {
   res.render('auth/signup', data);
 });
 
+//POST SIGNUP
 router.post('/signup', async (req, res, next) => {
   try {
     const newUser = { ...req.body }
@@ -32,6 +33,7 @@ router.post('/signup', async (req, res, next) => {
   }
 });
 
+//GET SIGNIN
 router.get('/signin', (req, res, next) => {
   let data = {
     css : ['auth']
@@ -39,8 +41,37 @@ router.get('/signin', (req, res, next) => {
   res.render('auth/signin', data);
 });
 
+//POST SIGNIN
 router.post('/signin', async (req, res, next) => {
-  
+  try {
+    const {mail, password} = req.body;
+    const foundUser = await UserModel.findOne({mail: mail});
+
+    if (!foundUser) {
+        res.redirect("/auth/signin");
+    } else {
+        const isSamePassword = bcrypt.compareSync(password, foundUser.password);
+        
+        if (!isSamePassword) {
+          res.redirect("/auth/signin");
+        } 
+        else {
+          const userObject = foundUser.toObject();
+          delete userObject.password;
+          req.session.currentUser = userObject;
+          res.redirect("/");
+        }
+    }
+  } catch(err) {
+    console.log(err);
+  }
+});
+
+//GET SIGNOUT
+router.get('/signout', (req, res, next) => {
+  req.session.destroy(err => {
+    res.redirect("/");
+  });
 });
 
 module.exports = router;

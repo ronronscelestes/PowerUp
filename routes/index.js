@@ -6,6 +6,7 @@ router.get('/', (req, res, next) => {
   let data = {
     css : ['index', 'card']
   }
+  console.log(req.session.isLoggedIn);
   res.render('index', data);
 });
 

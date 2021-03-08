@@ -1,3 +1,4 @@
+require('dotenv').config()
 require("./config/db.config"); // database initial setup
 const createError = require('http-errors');
 const express = require('express');
@@ -5,6 +6,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const hbs = require('hbs');
+
+//deal with session
+const session = require("express-session");
 
 const app = express();
 
@@ -18,6 +22,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//session again
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    cookie: { maxAge: 60000 },
+    saveUninitialized: true,
+    resave: true,
+  })
+);
+
+//loginStatus accessible in templates
+app.use(require("./middlewares/exposeLoginStatus"));
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');

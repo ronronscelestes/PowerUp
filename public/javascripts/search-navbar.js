@@ -12,3 +12,17 @@ inputSearchNavBar.addEventListener('blur', () => {
     inputSearchNavBar.placeholder = '';
     searchIcon.style.display = 'block';
 })
+
+//auth icon that deals with auth - profile etc
+//
+const authIcon = document.getElementById('auth-icon');
+const authWidget = document.getElementById('auth-widget');
+const navBar = document.getElementById('nav-bar')
+
+authIcon.addEventListener('mouseenter', () => {
+    authWidget.classList.remove('hide');
+})
+
+navBar.addEventListener('mouseleave', () => {
+    authWidget.classList.add('hide');
+})

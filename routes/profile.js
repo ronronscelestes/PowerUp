@@ -1,9 +1,12 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
-/* GET home page. */
+/* GET profile page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  let data = {
+    css : ['profile']
+  }
+  res.render('profile/profile', data);
 });
 
 module.exports = router;
