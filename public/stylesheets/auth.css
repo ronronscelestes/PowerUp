@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgba(0, 3, 28, 1);
+    height: 100vh;
+    overflow: hidden;
+    color: rgba(192, 194, 245, 1);
+}
+
+/* VIDEO BACKGROUND  */
+
+#videoBG {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    z-index: -1;
+}
+
+/* SIGN UP  */
+
+#all-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+
+#signup-container {
+    position: absolute;
+    width: 50vw;
+    max-width: 520px;
+    height: 85vh;
+    max-height: 700px;
+    background-color: #00031C;
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.56);
+    border-radius: 24px;
+    padding: 45px;
+    pointer-events: all;
+}
+
+label, input {
+    display: block;
+}
+
+#signup-container h1 {
+    font-family: 'Din Pro 900';
+    font-size: 75px;
+    line-height: 84%;
+    text-transform: uppercase;
+    margin-bottom: 10%;
+}
+
+#signup-container p {
+    color: rgba(192, 194, 245, 0.4);
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 2px;
+}
+
+#signup-container p, #signup-container a, form button {
+    font-family: 'Din Pro 400';
+    text-transform: uppercase;
+}
+
+#signup-container a {
+    text-decoration: none;
+    color: rgba(192, 194, 245, 1);
+    font-size: 18px;
+    line-height: 100%;
+    margin-bottom: 8%;
+    display: block;
+}
+
+#signup-container a img {
+    width: 6px;
+    fill: #C0C2F5;
+    position: relative;
+    top: -1px;
+    margin-left: 10px;
+}
+
+form input {
+    font-family: 'Din Pro 400';
+    font-size: 18px;
+    line-height: 134%;
+    background: rgba(18, 21, 46, 0.48);
+    border: 1px solid rgba(192, 194, 245, 0.4);
+    border-radius: 8px;
+    min-width: 100%;
+    padding: 12px;
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: 6%;
+}
+
+form label {
+    font-family: 'Din Pro Cond 500';
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 92%;
+    margin-bottom: 8px;
+}
+
+form input:focus {
+    outline: none;
+}
+
+form button {
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(192, 194, 245, 0.2);
+    color: #F0F0FF;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+form button:focus {
+    outline: none;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button img {
+    width: 16px;
+    margin-right: 16px;
+}
+
+button #sign-in-icon {
+    width: 8px;
+}

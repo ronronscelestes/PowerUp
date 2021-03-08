@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const hbs = require('hbs');
 
+require('./config/db.config');
+
 const app = express();
 
 // view engine setup
