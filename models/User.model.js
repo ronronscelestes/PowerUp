@@ -5,9 +5,9 @@ const userSchema = new Schema ({
     username: String,
     mail: String,
     password: String,
-    want_to_play: [{type: Schema.Types.ObjectId,  ref: "games"}],
-    current_play: [{type: Schema.Types.ObjectId,  ref: "games"}],
-    already_played: [{type: Schema.Types.ObjectId,  ref: "games"}],
+    wantToPlay: [{type: Schema.Types.ObjectId,  ref: "games"}],
+    currentPlay: [{type: Schema.Types.ObjectId,  ref: "games"}],
+    alreadyPlayed: [{type: Schema.Types.ObjectId,  ref: "games"}],
     playlist: [
         {name : String, 
         games : [
