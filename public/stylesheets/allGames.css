@@ -1,27 +1,35 @@
-#halo-bg {
-    position: fixed;
-    top: -30%;
-    right: -50%;
-    z-index: -1000;
-    width: 100vw;
-    height: 100vh;
-    background: radial-gradient(50% 50% at 50% 50%, #FD00E4 0%, rgba(253, 0, 228, 0) 100%);
-    opacity: 0.2;
-}
-#main-container h1 {
-    font-family: 'Din Pro 400';
-    font-size: 25px;
-    line-height: 38px;
-    letter-spacing: 0.5px;
-    margin-bottom: 18px;
-    color: #C0C2F5;
+#result-for {
+    font-family: 'DIN Pro 400';
+    color: rgba(192, 194, 245, 1);
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
 }
 
-#card-gallery {
+#result-search-title {
+    font-family: 'DIN Pro 900';
+    font-size: 110px;
+    line-height: 84%;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #F0F0FF;
+    margin-bottom: 64px;
+}
+
+/* à ajouter si on trouve une solution viable avec grid */
+/* #card-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    /* justify-content: center;
-    align-content: center; */
     gap: 20px;
+} */
+
+#card-gallery {
+    display: flex;
+    flex-wrap: wrap;
 }
+
+#card-container {
+    min-width: 300px;
+    margin: 0 28px 48px 0;
+} 
 

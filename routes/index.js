@@ -8,6 +8,7 @@ router.get('/', (req, res, next) => {
   let data = {
     css : ['index', 'card'],
     js : ['search-mainbar'],
+    isHomePage : true
   }
   console.log(req.session.isLoggedIn);
   res.render('index', data);

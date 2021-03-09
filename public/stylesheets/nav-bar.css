@@ -73,6 +73,7 @@
     padding: 14px 24px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.28);
     border-radius: 12px;
+    z-index: 1000;
 }
 
 #auth-widget a {

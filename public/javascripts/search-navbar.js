@@ -3,18 +3,20 @@
 const inputSearchNavBar = document.getElementById('small-search-input');
 const searchIcon = document.querySelector('#small-search-input + img');
 
-inputSearchNavBar.addEventListener('focus', () => {
-    inputSearchNavBar.placeholder = 'Look for a game, genre...';
-    searchIcon.style.display = 'none';
-})
+if(inputSearchNavBar) {
+    inputSearchNavBar.addEventListener('focus', () => {
+        inputSearchNavBar.placeholder = 'Look for a game, genre...';
+        searchIcon.style.display = 'none';
+    })
+    
+    inputSearchNavBar.addEventListener('blur', () => {
+        inputSearchNavBar.placeholder = '';
+        searchIcon.style.display = 'block';
+    })
+}
 
-inputSearchNavBar.addEventListener('blur', () => {
-    inputSearchNavBar.placeholder = '';
-    searchIcon.style.display = 'block';
-})
 
 //auth icon that deals with auth - profile etc
-//
 const authIcon = document.getElementById('auth-icon');
 const authWidget = document.getElementById('auth-widget');
 const navBar = document.getElementById('nav-bar')

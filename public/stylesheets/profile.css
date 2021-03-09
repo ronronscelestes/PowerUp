@@ -24,7 +24,7 @@ ul li {
     line-height: 100%;
     cursor: pointer;
     color: rgba(240, 240, 255, 0.5);
-    margin-right: 24px;
+    margin: 0 24px 64px 0;
 }
 
 h2 {
@@ -38,4 +38,10 @@ h2 {
 
 ul li, h2 {
     margin-left: 8px;
+}
+
+.bigger-font-li {
+    font-family: 'DIN Pro 900';
+    color: #F0F0FF;
+    transition: all 0.2s ease-in-out;
 }

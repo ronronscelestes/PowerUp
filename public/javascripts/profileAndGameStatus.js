@@ -3,6 +3,7 @@ const liAll = document.getElementById('all');
 const liCurrentPlay = document.getElementById('currentPlay');
 const liWantToPlay = document.getElementById('wantToPlay');
 const liAlreadyPlayed = document.getElementById('alreadyPlayed');
+const allLis = [liAll, liCurrentPlay, liWantToPlay, liAlreadyPlayed];
 
 let activeFilter = 'all';
 let allGamesData = [];
@@ -18,14 +19,16 @@ const renderOneCat = gamesCat => {
       <a href="/games/${game._id}">
       <div id="card-content">
           <div id="top-content">
-              <div class="rating"><p>${game.metacritic}</p></div>
+            <div class="rating"><p>${game.metacritic}</p></div>
           </div>
           <div id="bottom-content">
-              <h4 class="card-title">${game.name}</h4>
-              ${game.genres.map(genre => `<p class="card-genre">${genre}</p>`)}
-              <p class="card-platforms">
-              </p>
-
+            <h4 class="card-title">${game.name}</h4>
+            <p class="card-genres">
+            ${game.genres.map(genre => `<span class="tag-genre">${genre}</span>`)}
+            </p>
+            <p class="card-platforms">
+            ${game.platforms.map(platform => `<span class="split-dash">${platform}</span>`)}
+            </p>
           </div>
       </div>
       </a>
@@ -57,19 +60,26 @@ const readAllGames = onDone => {
 }
 
 const prepareGamesToDisplay = () => {
+  allLis.forEach(li => {
+    li.classList.remove('bigger-font-li');
+  })
   //à partir de allGamesData et en fonction de activeFilter prépare gamesToDisplay
   //les jeux que je vais afficher
   switch(activeFilter) {
     case 'all' :
+      liAll.classList.add('bigger-font-li');
       gamesToDisplay = allGamesData;
       break;
     case 'currentPlay' : 
+      liCurrentPlay.classList.add('bigger-font-li');
       gamesToDisplay = [allGamesData[0]];
       break;
     case 'wantToPlay' : 
+      liWantToPlay.classList.add('bigger-font-li');
       gamesToDisplay = [allGamesData[1]];
       break;
     case 'alreadyPlayed' :
+      liAlreadyPlayed.classList.add('bigger-font-li');
       gamesToDisplay = [allGamesData[2]];
       break;
   }

@@ -4,10 +4,14 @@
     </a>
     <div id="search-navbar">
 
+        
         <div id="small-searchbar-container">
-            <input id="small-search-input" type="text">
-            <img src="/images/search-icon-small.svg" alt="search icon">
+            {{#unless isHomePage}}
+                <input id="small-search-input" type="text">
+                <img src="/images/search-icon-small.svg" alt="search icon">
+            {{/unless}}
         </div>
+        
 
         <div id="auth-icon">
             <img src="/images/helmet-icon.svg" alt="helmet icon">
@@ -15,13 +19,13 @@
             <div class="hide" id="auth-widget">
 
                 {{#if isLoggedIn}}
-                <a href="/profile">Profile</a>
-                <a href="/profile/settings">Settings</a>
-                <a href="/auth/signout">Sign out</a>
+                    <a href="/profile">Profile</a>
+                    <a href="/profile/settings">Settings</a>
+                    <a href="/auth/signout">Sign out</a>
 
                 {{else}}
-                <a href="/auth/signin">Sign in</a>
-                <a href="/auth/signup">Sign up</a>
+                    <a href="/auth/signin">Sign in</a>
+                    <a href="/auth/signup">Sign up</a>
                 {{/if}}
 
             </div>
