@@ -48,7 +48,7 @@ router.post('/signin', async (req, res, next) => {
     const foundUser = await UserModel.findOne({mail: mail});
 
     if (!foundUser) {
-        res.redirect("/auth/signin");
+      res.redirect("/auth/signin");
     } else {
         const isSamePassword = bcrypt.compareSync(password, foundUser.password);
         
