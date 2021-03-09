@@ -51,16 +51,27 @@ router.get('/games', async(req, res, next)=>{
 
 });
 
+router.get('/settings', (req, res) => {
+  let data = {
+    css : ['settings']
+  }
+  res.render('profile/settings', data)
+})
+
 
 
 router.get('/update', async(req, res, next)=>{
-  const userInfo= await UserModel.findById(req.session.currentUser._id)
-  let data = {
-    css : ['update'],
-    user : userInfo
+  try {
+    const userInfo= await UserModel.findById(req.session.currentUser._id)
+    let data = {
+      css : ['auth'],
+      user : userInfo
+    }
+    
+    res.render('profile/update', data)
+  } catch(err) {
+    res.send('pas de user');
   }
-  
-res.render('profile/update', data)
 
 })
 
@@ -75,7 +86,7 @@ router.post('/update', (req, res, next)=>{
 
 router.get('/update-password', (req, res, next)=>{
   let data = {
-  css : ['updatePassword'],
+  css : ['auth'],
 }
   res.render('profile/updatePassword', data)}
 )
