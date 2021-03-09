@@ -1,36 +1,23 @@
-<h1>PROFILE PAGE</h1>
+
+{{!-- 
+<a href="/profile/update">Update your profile</a>
+<a href="/profile/update-password">Update your password</a>
+<a href="/profile/delete">Delete your profile</a> --}}
 
 
-{{user.username}}
-{{user.mail}}
-
-<button id="all">All</button>
-<button id="WantToPlay">WantToPlay</button>
-<button id="AlreadyPlayed">AlreadyPlayed</button>
-<button id="CurrentPlay">CurrentPlay</button>
-
-
-
-
-{{!-- <h2>wantToPlay</h2> --}}
-{{#each user.wantToPlay}}
-<div>{{this}}</div>
-{{!-- <button class="moveToCurrentPlay" >CurrentPlay</button>
-<button class="moveToAlreadyPlayed" >Alreadyplayed</button> --}}
-{{/each}}
-
-{{!-- <h2>CurrentPlay</h2> --}}
-<div>
-{{#each user.currentPlay}}
-<div>{{this}}</div>
-{{!-- <button class="moveToWantToPlay" >WantToPlay</button>
-<button class="moveToAlreadyPlayed" >Alreadyplayed</button> --}}
-{{/each}}
+<div id="profile-text">
+    <h2>your profile</h2>
+    <h1 id="username"></h1>
+    <ul>
+        <li id = "all">all</li>
+        <li id = "currentPlay">currently playing</li>
+        <li id = "wantToPlay">want to play</li>
+        <li id = "alreadyPlayed">completed</li>
+    </ul>
 </div>
 
-{{!-- <h2>alreadyPlayed</h2> --}}
-{{#each user.alreadyPlayed}}
-<div>{{this}}</div>
-{{!-- <button class="moveToWantToPlay" >WantToPlay</button>
-<button class="moveToCurrentPlay" >CurrentPlay</button> --}}
-{{/each}}
+<div id="card-gallery"></div>
+
+
+
+

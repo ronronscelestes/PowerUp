@@ -6,6 +6,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const hbs = require('hbs');
+const flash = require("connect-flash");
+
 
 //deal with session
 const session = require("express-session");
@@ -32,6 +34,11 @@ app.use(
     resave: true,
   })
 );
+
+//Flash
+app.use(flash());
+//Flash middleware
+app.use(require("./middlewares/exposeFlashMessage"));
 
 //loginStatus accessible in templates
 app.use(require("./middlewares/exposeLoginStatus"));
