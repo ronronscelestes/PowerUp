@@ -1,5 +1,6 @@
 let express = require('express');
 let router = express.Router();
+const bcrypt = require('bcrypt');
 let UserModel= require('./../models/User.model')
 
 
@@ -49,6 +50,64 @@ router.get('/games', async(req, res, next)=>{
   }
 
 });
+
+
+
+router.get('/update', async(req, res, next)=>{
+  const userInfo= await UserModel.findById(req.session.currentUser._id)
+  let data = {
+    css : ['update'],
+    user : userInfo
+  }
+  
+res.render('profile/update', data)
+
+})
+
+router.post('/update', (req, res, next)=>{
+  const {mail, username}=req.body
+  UserModel.findByIdAndUpdate(req.session.currentUser._id, {mail, username}, {new:true})
+  .then((user)=> {
+    console.log(user)
+    res.redirect('/profile')})
+  .catch(next)
+})
+
+router.get('/update-password', (req, res, next)=>{
+  let data = {
+  css : ['updatePassword'],
+}
+  res.render('profile/updatePassword', data)}
+)
+
+router.post('/update-password', async(req, res, next)=>{
+  let {formerPassword, newPassword}=req.body
+  const User= await UserModel.findById(req.session.currentUser._id)
+  const isSamePassword = bcrypt.compareSync(formerPassword, User.password);
+      if (!isSamePassword) {
+        console.log('prévoir un message d erreur')
+        res.redirect("/update-password");
+      } 
+      else {
+        const hashedPassword = bcrypt.hashSync(newPassword, 10);
+        newPassword = hashedPassword;
+        await UserModel.findByIdAndUpdate(req.session.currentUser._id, {password : newPassword}, {new:true});
+        res.redirect('/profile')
+      }
+  }
+)
+
+
+router.get("/delete", async (req, res, next) => {
+  try {
+    await UserModel.findByIdAndRemove(req.session.currentUser._id);
+    res.redirect("/auth/signup");
+  } catch (err) {
+    next(err);
+  }
+});
+
+
 
 module.exports = router;
 

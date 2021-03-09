@@ -1,1 +1,20 @@
-<h1>UPDATE USER PROFILE PAGE</h1>
+<div id="all-container">
+    <div id="update-profile-container">
+        <h1>Update your account below</h1>
+
+        <form action="/profile/update" method="POST">
+            <label for="mail">email address</label>
+            <input name="mail" id="mail" type="email" value="{{user.mail}}">
+
+            <label for="username">your username</label>
+            <input name="username" id="username" type="text"  value="{{user.username}}">
+
+            <button>
+                <img src="/images/create-user-icon.svg" alt="">
+                Update account
+            </button>
+        </form>
+        <a href="/profile/update-password">Update Password here</a>
+
+    </div>
+</div>
