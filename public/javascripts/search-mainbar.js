@@ -6,11 +6,11 @@ inputSearchMainBar.addEventListener('keypress', function (evt) {
         const search = inputSearchMainBar.value;
         let query = `?name=${search}`;
 
-        axios.get(`/games/search${query}`)
-            .then(dataRes => {
+        // axios.get(`/`)
+        //     .then(dataRes => {
                 window.location = `/games/search${query}`;
-                console.log(dataRes);
-            })
-            .catch(dataErr => console.log(dataErr))
-    }
-})
+                // console.log(dataRes);
+    //         })
+    //         .catch(dataErr => console.log(dataErr))
+    // }
+}})

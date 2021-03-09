@@ -9,14 +9,15 @@
         </div>
         <div id="bottom-content">
             <h4 class="card-title">{{this.name}}</h4>
-            <p class="card-genre">
+            <p class="card-genres">
                 {{#each this.genres}}
                     <span class="tag-genre">{{this}}</span>
                 {{/each}}
             </p>
-            <p class="card-platforms">
+            <p class="card-platforms ">
                 {{#each platforms}}
-                    / {{this}}
+                    <span class="split-dash"> {{this}} </span>
+                    
                 {{/each}}    
             </p>
 
