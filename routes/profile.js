@@ -22,7 +22,7 @@ router.get('/', (req, res, next)=> {
   // res.send(req.session.currentUser._id);
   let data = {
     js : ['profileAndGameStatus'],
-    css : ['card', 'allGames']
+    css : ['fonts', 'card', 'profileGames', 'profile']
   }
   res.render('profile/profile', data);
 });

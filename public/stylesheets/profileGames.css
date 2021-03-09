@@ -1,0 +1,11 @@
+#card-gallery {
+    margin: 0 80px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#card-container {
+    min-width: 300px;
+    margin: 48px 28px 48px 0;
+}
+

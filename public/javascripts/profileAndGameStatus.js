@@ -35,9 +35,9 @@ const renderOneCat = gamesCat => {
 }
 
 const renderGames = () => {
+  document.getElementById('username').innerText = userName;
   gamesContainer.innerHTML = '';
   prepareGamesToDisplay();
-  // console.log(gamesToDisplay);
   gamesToDisplay.forEach(category => {
     renderOneCat(category)
   })
@@ -46,13 +46,10 @@ const renderGames = () => {
 const readAllGames = onDone => {
   axios.get('/profile/games')
   .then(apiRes => {
-    // console.log(apiRes.data);
 
-    // document.getElementById('username').innerText = apiRes.data.username;
     const {currentPlay, alreadyPlayed, wantToPlay, username} = apiRes.data;
     userName = username;
     allGamesData = [currentPlay, wantToPlay, alreadyPlayed];
-    // console.log(allGamesData);
 
     onDone();
   })
@@ -60,7 +57,6 @@ const readAllGames = onDone => {
 }
 
 const prepareGamesToDisplay = () => {
-  console.log(activeFilter);
   //à partir de allGamesData et en fonction de activeFilter prépare gamesToDisplay
   //les jeux que je vais afficher
   switch(activeFilter) {
@@ -77,7 +73,6 @@ const prepareGamesToDisplay = () => {
       gamesToDisplay = [allGamesData[2]];
       break;
   }
-  console.log(gamesToDisplay);
 }
 
 const onFilterBy = filter => {
