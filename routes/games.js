@@ -44,14 +44,14 @@ router.get('/:id', (req, res, next)=>{
     let {currentPlay, alreadyPlayed,  wantToPlay}=req.body
     if (currentPlay!==undefined){
       // currentPlay = req.params.id
-      UserModel.findByIdAndUpdate(req.session.currentUser._id ,{$pull:{alreadyPlayed: req.params.id, wantToPlay : req.params.id }, $push:{currentPlay:req.params.id}}, {new:true} )
+      UserModel.findByIdAndUpdate(req.session.currentUser._id ,{$pull:{currentPlay:req.params.id, alreadyPlayed: req.params.id, wantToPlay : req.params.id }, $push:{currentPlay:req.params.id}}, {new:true} )
       .then((dbresult)=>{
         console.log(dbresult);  
         res.redirect('/profile')})
     } 
     else if (alreadyPlayed !== undefined){
       // alreadyPlayed = req.params.id
-      UserModel.findByIdAndUpdate(req.session.currentUser._id ,{$push:{alreadyPlayed: req.params.id},  $pull: { currentPlay: req.params.id,  wantToPlay : req.params.id } }, {new:true})
+      UserModel.findByIdAndUpdate(req.session.currentUser._id ,{$pull: { alreadyPlayed: req.params.id, currentPlay: req.params.id,  wantToPlay : req.params.id }, $push:{alreadyPlayed: req.params.id}  }, {new:true})
       .then((dbresult)=>{
               console.log(dbresult)
   
@@ -59,7 +59,7 @@ router.get('/:id', (req, res, next)=>{
             }
     else if(wantToPlay!==undefined){
       // wantToPlay = req.params.id
-      UserModel.findByIdAndUpdate(req.session.currentUser._id ,{$push: {wantToPlay: req.params.id}, $pull: { currentPlay: req.params.id,  alreadyPlayed : req.params.id } }, {new:true})
+      UserModel.findByIdAndUpdate(req.session.currentUser._id ,{$pull: { wantToPlay: req.params.id, currentPlay: req.params.id,  alreadyPlayed : req.params.id } , $push: {wantToPlay: req.params.id} }, {new:true})
       .then((dbresult)=>{
         console.log(dbresult)
         res.redirect('/profile')})
