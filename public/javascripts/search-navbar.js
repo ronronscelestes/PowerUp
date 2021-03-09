@@ -23,8 +23,22 @@ const navBar = document.getElementById('nav-bar')
 
 authIcon.addEventListener('mouseenter', () => {
     authWidget.classList.remove('hide');
-})
+});
 
 navBar.addEventListener('mouseleave', () => {
     authWidget.classList.add('hide');
-})
+});
+
+export function searchBar(element, key, event) {
+    element.addEventListener(event, function (evt) {
+        if (evt.key === key) {
+            const search = element.value;
+            let query = `?name=${search}`;
+            window.location = `/games/search${query}`;
+            element.value = "";
+        }
+    })
+};
+
+searchBar(inputSearchNavBar, 'Enter', 'keypress')
+

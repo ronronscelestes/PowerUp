@@ -16,7 +16,7 @@ p {
 }
 
 #game-container {
-    margin: 30px 80px 0;
+    margin: 30px 80px 100px;
     font-family: 'DIN Pro 400';
     color: #fff;
     display: grid;
