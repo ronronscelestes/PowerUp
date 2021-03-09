@@ -83,8 +83,9 @@ router.post('/update-password', async(req, res, next)=>{
   const User= await UserModel.findById(req.session.currentUser._id)
   const isSamePassword = bcrypt.compareSync(formerPassword, User.password);
       if (!isSamePassword) {
-        console.log('prévoir un message d erreur')
-        res.redirect("/update-password");
+        req.flash("error", "Your former password is not valid.");
+
+        res.redirect('/profile/update-password');
       } 
       else {
         const hashedPassword = bcrypt.hashSync(newPassword, 10);
@@ -99,7 +100,8 @@ router.post('/update-password', async(req, res, next)=>{
 router.get("/delete", async (req, res, next) => {
   try {
     await UserModel.findByIdAndRemove(req.session.currentUser._id);
-    res.redirect("/auth/signup");
+    req.flash("success", "Your account has been deleted !");
+    res.redirect("/auth/signout");
   } catch (err) {
     next(err);
   }
