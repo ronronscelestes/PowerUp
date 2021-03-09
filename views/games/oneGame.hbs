@@ -1,30 +1,57 @@
 <img id="background" src="{{game.background_image}}" alt="">
 
-<h1>ONE GAME PAGE</h1>
+<div id="game-container">
+    <section id="left-col">
+        <p class="">{{game.released}} <span>-</span> {{#each game.developers}} <span class="split-comma"> {{this}} </span>{{/each}}</p>
 
-<h2>{{game.name}}</h2>
-<p>{{game.description}}</p>
-<p>{{game.background_image}}</p>
-<p>{{game.developers}} </p>
-<p>{{game.metacritic}} </p>
-<p>{{game.genres}} </p>
-<p>{{game.platforms}}</p>
-<p>{{game.website}}  </p>
-<p>{{game.released}} </p>
+        <h1>{{game.name}}</h1>
+        <div id="ratings-status">
+            {{#if game.metacritic}}
+             <div class="rating-block" >
+                 <span class="rating"><p>{{game.metacritic}}</p></span><p>ON METACRITIC</p></div>
+            {{/if}} 
+            <div class="collection-block">
+                <div class="add-collection"><p>+ ADD TO COLLECTION</p></div>
 
-<form method="POST" action="/games/{{game._id}}" class="">
-<label for="currentPlay">currentPlay</label>
-{{!-- <input type="hidden" name="currentPlay" value="0"> --}}
-<input type="checkbox" name="currentPlay" value="currentPlay">
-<label for="already_played">already_played</label>
-{{!-- <input type="hidden" name="alreadyPlayed" value="0"> --}}
-<input type="checkbox" name="alreadyPlayed" value="alreadyPlayed">
-<label for="wantToPlay">want_to_play</label>
-{{!-- <input type="hidden" name="wantToPlay" value="0"> --}}
-<input type="checkbox" name="wantToPlay" value="wantToPlay">
-<button>OK !</button>
-</form>
+                <form class="status-list" method="POST" action="/games/{{game._id}}" class="">
+                    <div> 
+                        <input type="checkbox" name="currentPlay" value="currentPlay" id="currentPlay">
+                        <label for="currentPlay">Current play</label>
+                        {{!-- <input type="hidden" name="currentPlay" value="0"> --}}
+                    </div>
+                    <div>
+                        <input type="checkbox" name="alreadyPlayed" value="alreadyPlayed" id="already_played">
+                        <label for="already_played">Already Played</label>
+                        {{!-- <input type="hidden" name="alreadyPlayed" value="0"> --}}
+                    </div>
+                    <div>
+                        <input type="checkbox" name="wantToPlay" value="wantToPlay" id="wantToPlay">
+                        <label for="wantToPlay">Want to play</label>
+                        {{!-- <input type="hidden" name="wantToPlay" value="0"> --}}
+                    </div>
+                    <button>OK !</button>
+                </form>
+            </div>
+        
+        </div>
+       
+        <p class="game-description">{{game.description}}</p>
+        <div id="game-platforms"><p>{{#each game.platforms}} <span class="split-dash"> {{this}} </span> {{/each}}</p></div>
+        <div id="game-genres">
+        {{#each game.genres}}
+        <span>{{this}}</span>
+        {{/each}}   
+        </div>
+        {{!-- <p>{{game.website}}  </p> --}}
+    </section>
+    <aside id="right-col">
+        <div id="img-container" style="background-image: url('{{game.background_image}}')">
+        </div>
+    </aside>
+    
 
+    
+</div>
 
 
 

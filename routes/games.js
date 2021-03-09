@@ -12,12 +12,16 @@ router.get("/search", async (req, res, next) => {
     const gamesFound = await GameModel.find({
       name: new RegExp(req.query.name, "i"),
     });
-
+    //sort games by rates
+    gamesFound.sort((a,b) => b.metacritic - a.metacritic);
+    
     let data = {
       games: gamesFound,
+      query: req.query.name,
       css: ["index", "card", "allGames"],
       js: ["rating-color"],
     };
+    
     res.render("games/gamesCateg", data);
   } catch (err) {
     console.log(err);
@@ -25,12 +29,14 @@ router.get("/search", async (req, res, next) => {
   }
 });
 
+
 router.get("/:id", (req, res, next) => {
   GameModel.findById(req.params.id)
     .then((game) => {
       let data = {
         game: game,
-        css: ["oneGame"],
+        css: ["oneGame", "gameStatus"],
+        js: ["rating-color", "addCollection"]
       };
 
       res.render("games/oneGame", data);
