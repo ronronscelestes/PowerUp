@@ -19,11 +19,14 @@ router.post('/signup', async (req, res, next) => {
     const userFound = await UserModel.findOne({mail : newUser.mail});
 
     if (userFound) {
-        res.redirect("/auth/signin");
+      req.flash("error", "Invalid credentials");
+
+        res.redirect("/auth/signup");
     } else {
         const hashedPassword = bcrypt.hashSync(newUser.password, 10);
         newUser.password = hashedPassword;
         await UserModel.create(newUser);
+        req.flash("success", "Congrats ! You are now registered !");
 
         res.redirect("/auth/signin");
     }
@@ -48,17 +51,23 @@ router.post('/signin', async (req, res, next) => {
     const foundUser = await UserModel.findOne({mail: mail});
 
     if (!foundUser) {
+      req.flash("error", "Invalid credentials");
+
       res.redirect("/auth/signin");
     } else {
         const isSamePassword = bcrypt.compareSync(password, foundUser.password);
         
         if (!isSamePassword) {
+          req.flash("error", "Invalid credentials");
+
           res.redirect("/auth/signin");
         } 
         else {
           const userObject = foundUser.toObject();
           delete userObject.password;
           req.session.currentUser = userObject;
+          req.flash("success", "you're logged in");
+
           res.redirect("/");
         }
     }
