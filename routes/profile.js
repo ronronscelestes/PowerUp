@@ -21,7 +21,8 @@ let UserModel= require('./../models/User.model')
 router.get('/', (req, res, next)=> {
   // res.send(req.session.currentUser._id);
   let data = {
-    js : ['profileAndGameStatus']
+    js : ['profileAndGameStatus'],
+    css : ['card', 'allGames']
   }
   res.render('profile/profile', data);
 });
@@ -38,7 +39,8 @@ router.get('/games', async(req, res, next)=>{
       let data = {
         currentPlay : userData.currentPlay,
         alreadyPlayed : userData.alreadyPlayed,
-        wantToPlay : userData.wantToPlay
+        wantToPlay : userData.wantToPlay,
+        username : userData.username
       }
 
       res.json(data);
