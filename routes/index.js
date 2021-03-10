@@ -10,7 +10,7 @@ router.get('/', (req, res, next) => {
     js : ['search-mainbar'],
     isHomePage : true
   }
-  console.log(req.session.isLoggedIn);
+  // console.log(req.session.isLoggedIn);
   res.render('index', data);
 });
 

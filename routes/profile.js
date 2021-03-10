@@ -79,7 +79,6 @@ router.post('/update', (req, res, next)=>{
   const {mail, username}=req.body
   UserModel.findByIdAndUpdate(req.session.currentUser._id, {mail, username}, {new:true})
   .then((user)=> {
-    console.log(user)
     res.redirect('/profile')})
   .catch(next)
 })
