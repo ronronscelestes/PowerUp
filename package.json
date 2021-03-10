@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon ./bin/www -e .js,.hbs"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www -e .js,.hbs",
+    "update": "node ./bin/updateMMO.js",
+    "seed": "node ./bin/seed.js"
   },
   "dependencies": {
     "axios": "^0.21.1",

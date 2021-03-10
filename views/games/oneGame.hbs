@@ -5,37 +5,39 @@
         <p class="">{{game.released}} <span>-</span> {{#each game.developers}} <span class="split-comma"> {{this}} </span>{{/each}}</p>
 
         <h1>{{game.name}}</h1>
+        {{> flash_message }}
         <div id="ratings-status">
             {{#if game.metacritic}}
              <div class="rating-block" >
                  <span class="rating"><p>{{game.metacritic}}</p></span><p>ON METACRITIC</p></div>
-            {{/if}} 
+            {{/if}}
             <div class="collection-block">
                 <div class="add-collection"><p>+ ADD TO COLLECTION</p></div>
-
+                
                 <form class="status-list" method="POST" action="/games/{{game._id}}" class="">
                     <div> 
-                        <input type="checkbox" name="currentPlay" value="currentPlay" id="currentPlay">
+                        <input class="game-status currentPlay" data-game-id ={{game._id}} type="checkbox" name="currentPlay" value="currentPlay" id="currentPlay">
                         <label for="currentPlay">Current play</label>
                         {{!-- <input type="hidden" name="currentPlay" value="0"> --}}
                     </div>
                     <div>
-                        <input type="checkbox" name="alreadyPlayed" value="alreadyPlayed" id="already_played">
-                        <label for="already_played">Already Played</label>
+                        <input class="game-status alreadyPlayed" data-game-id ={{game._id}} type="checkbox" name="alreadyPlayed" value="alreadyPlayed" id="alreadyPlayed">
+                        <label for="alreadyPlayed">Already Played</label>
                         {{!-- <input type="hidden" name="alreadyPlayed" value="0"> --}}
                     </div>
                     <div>
-                        <input type="checkbox" name="wantToPlay" value="wantToPlay" id="wantToPlay">
+                        <input class="game-status wantToPlay" data-game-id ={{game._id}} type="checkbox" name="wantToPlay" value="wantToPlay" id="wantToPlay">
                         <label for="wantToPlay">Want to play</label>
                         {{!-- <input type="hidden" name="wantToPlay" value="0"> --}}
                     </div>
-                    <button>OK !</button>
+                    {{!-- <button>OK !</button> --}}
                 </form>
             </div>
         
         </div>
-       
-        <p class="game-description">{{game.description}}</p>
+        
+
+        <div class="game-description">{{{game.description}}}</div>
         <div id="game-platforms"><p>{{#each game.platforms}} <span class="split-dash"> {{this}} </span> {{/each}}</p></div>
         <div id="game-genres">
         {{#each game.genres}}

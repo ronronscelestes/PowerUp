@@ -1,9 +1,15 @@
 <div id="main-container">
-    <h2 id="result-for">results for:</h2>
-    <h1 id="result-search-title">{{query}}</h1>
-    <section id="card-gallery">
-        {{#each games}}
-            {{> gameCard}}
-        {{/each}}
-    </section>
+    {{#if games}}
+        <h2 id="result-for">results for:</h2>
+        <h1 id="result-search-title">{{query}}</h1>
+        <section id="card-gallery">
+            {{#each games}}
+                {{> gameCard}}
+            {{/each}}
+        </section>
+    {{else}}
+        <h2 id="result-for">results for: {{query}}</h2>
+        <h1 id="result-search-title">Sorry, <br> no games <br> found</h1>
+        <a href="/">Back to homepage</a>
+    {{/if}}
 </div>

@@ -139,6 +139,7 @@ p {
 
 #img-container {
     position: sticky;
+<<<<<<< HEAD
     top: 20%;
 }
 
@@ -178,3 +179,8 @@ p {
         margin-right: 0;
     }
 }
+=======
+    top: 55px;
+}
+
+>>>>>>> 3ce6a0e1d5ca54ed09bd65b9b13f0bb20afdf15b
