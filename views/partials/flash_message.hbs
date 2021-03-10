@@ -7,6 +7,9 @@
 {{#if error_msg}}
 <div class="msg error">{{error_msg}}</div>
 {{/if}}
+{{#if login_error}}
+<div class="msg error">{{login_error}} >> <a href='/auth/signin'> Login</a></div>
+{{/if}}
 
 {{!-- {{#if success_msg}}
 <div class="flash-msg success">

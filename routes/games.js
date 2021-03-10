@@ -60,27 +60,32 @@ router.get("/:id", (req, res, next) => {
 
 router.post('/:id', (req, res, next)=>{
   let {currentPlay, alreadyPlayed,  wantToPlay}=req.body
-  if (currentPlay!==undefined){
-    // currentPlay = req.params.id
-    UserModel.findByIdAndUpdate(req.session.currentUser._id ,{$pull:{alreadyPlayed: req.params.id, wantToPlay : req.params.id }, $push:{currentPlay:req.params.id}}, {new:true} )
-    .then((dbresult)=>{
-      console.log(dbresult);
-      res.redirect('/profile')})
-  }
-  else if (alreadyPlayed !== undefined){
-    // alreadyPlayed = req.params.id
-    UserModel.findByIdAndUpdate(req.session.currentUser._id ,{$pull: {currentPlay: req.params.id,  wantToPlay : req.params.id }, $push:{alreadyPlayed: req.params.id}  }, {new:true})
-    .then((dbresult)=>{
-            console.log(dbresult)
+  if (!req.session.currentUser){
+    req.flash("login error", "Please login to add a game to your collection");
+    res.redirect(`/games/${req.params.id}`)
+  } else {
+    if (currentPlay!==undefined){
+      // currentPlay = req.params.id
+      UserModel.findByIdAndUpdate(req.session.currentUser._id ,{$pull:{alreadyPlayed: req.params.id, wantToPlay : req.params.id }, $push:{currentPlay:req.params.id}}, {new:true} )
+      .then((dbresult)=>{
+        console.log(dbresult);
+        res.redirect('/profile')})
+    }
+    else if (alreadyPlayed !== undefined){
+      // alreadyPlayed = req.params.id
+      UserModel.findByIdAndUpdate(req.session.currentUser._id ,{$pull: {currentPlay: req.params.id,  wantToPlay : req.params.id }, $push:{alreadyPlayed: req.params.id}  }, {new:true})
+      .then((dbresult)=>{
+              console.log(dbresult)
 
-            res.redirect('/profile')})
-          }
-  else if(wantToPlay!==undefined){
-    // wantToPlay = req.params.id
-    UserModel.findByIdAndUpdate(req.session.currentUser._id ,{$pull: {currentPlay: req.params.id,  alreadyPlayed : req.params.id } , $push: {wantToPlay: req.params.id} }, {new:true})
-    .then((dbresult)=>{
-      console.log(dbresult)
-      res.redirect('/profile')})
+              res.redirect('/profile')})
+            }
+    else if(wantToPlay!==undefined){
+      // wantToPlay = req.params.id
+      UserModel.findByIdAndUpdate(req.session.currentUser._id ,{$pull: {currentPlay: req.params.id,  alreadyPlayed : req.params.id } , $push: {wantToPlay: req.params.id} }, {new:true})
+      .then((dbresult)=>{
+        console.log(dbresult)
+        res.redirect('/profile')})
+    }
   }
 })
 
