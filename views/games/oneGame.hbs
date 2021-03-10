@@ -16,21 +16,21 @@
                 
                 <form class="status-list" method="POST" action="/games/{{game._id}}" class="">
                     <div> 
-                        <input type="checkbox" name="currentPlay" value="currentPlay" id="currentPlay">
-                        <label for="currentPlay">Currently playing</label>
+                        <input class="game-status currentPlay" data-game-id ={{game._id}} type="checkbox" name="currentPlay" value="currentPlay" id="currentPlay">
+                        <label for="currentPlay">Current play</label>
                         {{!-- <input type="hidden" name="currentPlay" value="0"> --}}
                     </div>
                     <div>
-                        <input type="checkbox" name="alreadyPlayed" value="alreadyPlayed" id="already_played">
-                        <label for="already_played">Completed</label>
+                        <input class="game-status alreadyPlayed" data-game-id ={{game._id}} type="checkbox" name="alreadyPlayed" value="alreadyPlayed" id="alreadyPlayed">
+                        <label for="alreadyPlayed">Already Played</label>
                         {{!-- <input type="hidden" name="alreadyPlayed" value="0"> --}}
                     </div>
                     <div>
-                        <input type="checkbox" name="wantToPlay" value="wantToPlay" id="wantToPlay">
+                        <input class="game-status wantToPlay" data-game-id ={{game._id}} type="checkbox" name="wantToPlay" value="wantToPlay" id="wantToPlay">
                         <label for="wantToPlay">Want to play</label>
                         {{!-- <input type="hidden" name="wantToPlay" value="0"> --}}
                     </div>
-                    <button>OK !</button>
+                    {{!-- <button>OK !</button> --}}
                 </form>
             </div>
         
