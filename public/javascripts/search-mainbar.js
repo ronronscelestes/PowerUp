@@ -1,9 +1,3 @@
-const inputSearchMainBar = document.getElementById("main-search-bar");
-const dropDown = document.getElementById("drop-down");
-const results = dropDown.querySelectorAll(".result")
-
-
-
 //---------ANCIENNE BARRE DE RECHERCHE ET RENVOIE VERS PAGES DE RESULTATS---------//
 
 
@@ -22,27 +16,76 @@ const results = dropDown.querySelectorAll(".result")
 //   }
 // });
 
+
+
+
+
 //---------DROPDOWN---------//
+
+const inputSearchMainBar = document.getElementById("main-search-bar");
+const dropDown = document.getElementById("drop-down-searchbar");
 
 
 function resetSearchResult() {
-    dropDown.innerHTML = "";
+  dropDown.innerHTML = "";
 }
 
 function displaySearchResult(games) {
-  dropDown.innerHTML = "";
+  resetSearchResult();
+
   if (games.length) {
     games.forEach((game) => {
-        let li=document.createElement("li")
-        li.innerText += `${game.name}`;
-        li.addEventListener("click", ()=>{
-            window.location = `/games/${game._id}`;
-        })
-        dropDown.appendChild(li)
+
+    //prepare games genres HTML
+    let genres = ""
+    game.genres.forEach((genre, index) => {
+        if(index < 3) genres += `<p>${genre}</p>`;
     });
+
+    let li = document.createElement("li");
+
+    li.innerHTML = `
+      <a class="db-game-link" href="/games/${game._id}">
+        <div class="db-game-left">
+          <div class="dp-img-container" style="background-image: url('${game.background_image}');">
+          </div>
+          <div class="db-game-name">
+              <p>${game.name}</p>
+          </div>
+        </div>
+        <aside class="db-game-genres">
+          ${genres}
+        </aside>
+      </a>
+    `;
+
+      li.addEventListener("click", ()=>{
+          window.location = `/games/${game._id}`;
+      });
+
+      dropDown.appendChild(li);
+
+    });
+
+    const liAllResults = document.createElement("li");
+    liAllResults.classList.add('link-all-results');
+    liAllResults.innerHTML = `
+      <p class="show-more-results">show more results</p>
+    `;
+    dropDown.appendChild(liAllResults);
+
+    const inputSearch = document.getElementById("main-search-bar");
+    const showMore = document.querySelector('.show-more-results');
+    
+    showMore.addEventListener('click', (evt) => {
+      window.location = `/games/search?name=${inputSearch.value}`;
+      inputSearch.value = "";
+    })
+
   } else {
     dropDown.innerHTML = `<li>sorry, no match found</li>`;
   }
+
 }
 
 
@@ -50,7 +93,7 @@ function handleRead(evt, callback) {
     axios
     .get(`/games/api?name=${evt.target.value}`)
     .then((dataRes) => {
-        console.log(dataRes.data) 
+        // console.log(dataRes.data) 
         callback(dataRes.data)})
     .catch((apiError) => console.log(apiError));
 }
@@ -72,5 +115,18 @@ inputSearchMainBar.onkeyup = (evt) => {
 import {searchBar} from '/javascripts/search-navbar.js'
 
 searchBar(inputSearchMainBar, 'Enter', 'keypress')
+
+
+//---------INPUT CONTAINER GRANDIT AU FOCUS---------//
+
+const searchBarContainer = document.getElementById('main-search-container');
+
+inputSearchMainBar.addEventListener('focus', () => {
+  searchBarContainer.style.width = '100%';
+})
+
+inputSearchMainBar.addEventListener('blur', () => {
+  searchBarContainer.style.width = '80%';
+})
 
 

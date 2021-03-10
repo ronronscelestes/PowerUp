@@ -15,11 +15,12 @@ export function searchBar(element, key, event) {
     })
 };
 
+
 if(inputSearchNavBar) {
     searchBar(inputSearchNavBar, 'Enter', 'keypress');
 
     inputSearchNavBar.addEventListener('focus', () => {
-        inputSearchNavBar.placeholder = 'Look for a game, genre...';
+        inputSearchNavBar.placeholder = 'Look for a game';
         searchIcon.style.display = 'none';
     })
     

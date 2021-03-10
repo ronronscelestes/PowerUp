@@ -1,0 +1,80 @@
+#drop-down-searchbar {
+    background: rgba(10, 13, 38, 0.8);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    list-style : none;
+    margin: 16px 0;
+}
+
+.db-game-link {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 20px;
+    text-decoration: none;
+}
+
+.db-game-link:focus {
+    outline: none;
+    border: 1px solid #C0C2F5;
+    border-radius: 12px;
+}
+
+.dp-img-container {
+    position: relative;
+    min-width: 95px;
+    min-height: 95px;
+    width: 95px;
+    height: 95px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px;
+}
+
+.dp-img-container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(15.14% 11.35% at 9.86% 7.92%, rgba(0, 3, 28, 0.1) 0%, rgba(0, 3, 28, 0) 100%), linear-gradient(180deg, rgba(0, 3, 28, 0) 32.92%, rgba(0, 3, 28, 0.72) 100%), linear-gradient(0deg, rgba(0, 3, 28, 0.1), rgba(0, 3, 28, 0.1));
+    border-radius: 8px;
+}
+
+.db-game-left {
+    display: flex;
+    align-items: center;
+}
+
+.db-game-name {
+    display: flex;
+}
+
+.db-game-name p {
+    font-family: 'Din Pro Cond 500';
+    text-transform: capitalize  ;
+    font-size: 40px;
+    line-height: 100%;
+    margin: 0 0 4px 32px;
+}
+
+.db-game-genres {
+    display: flex;
+    align-items: center;
+    padding-left: 100px;
+}
+
+.db-game-genres p {
+    font-family: 'Din Pro 400';
+    font-size: 14px;
+    line-height: 92%;
+    padding: 4px 12px;
+    font-size: 11px;
+    line-height: 26px;
+    text-transform: uppercase;
+    border: 1px solid rgba(192, 194, 245, 0.4);
+    border-radius: 20px;
+    margin-right: 5px;
+}
+
+.show-more-results {
+    cursor: pointer;
+}
