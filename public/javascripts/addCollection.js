@@ -24,8 +24,11 @@ const gameStatus = evt.target.name
     .catch((apiError) => console.log(apiError));
 }
 
+// function displayBoxChecked (){
+//     if 
+// }
 
-
+//Faire un addEventlistener générique
 currentPlayCheckbox.addEventListener("change", ChangeGameStatus)
 AlreadyPlayCheckbox.addEventListener("change", ChangeGameStatus)
 WantToPlayCheckbox.addEventListener("change", ChangeGameStatus)
