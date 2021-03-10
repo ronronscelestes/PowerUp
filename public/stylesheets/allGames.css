@@ -1,14 +1,35 @@
-#card-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    justify-content: center;
-    gap: 20px;
+#result-for {
+    font-family: 'DIN Pro 400';
+    color: rgba(192, 194, 245, 1);
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
 }
 
-h1.result-title {
-    font-family: 'Din Pro 900';
-    font-size: 36px;
-    line-height: 38px;
-    margin-bottom: 18px;
-    color: #fff;
+#result-search-title {
+    font-family: 'DIN Pro 900';
+    font-size: 110px;
+    line-height: 84%;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #F0F0FF;
+    margin-bottom: 64px;
 }
+
+/* à ajouter si on trouve une solution viable avec grid */
+/* #card-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+} */
+
+#card-gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#card-container {
+    min-width: 300px;
+    margin: 0 28px 48px 0;
+} 
+

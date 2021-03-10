@@ -66,13 +66,14 @@
 
 #auth-widget {
     position: absolute;
-    bottom: -100px;
+    top: 80px;
     right: 0;
     width: 190px;
     background-color: rgba(192, 194, 245, 0.2);
     padding: 14px 24px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.28);
     border-radius: 12px;
+    z-index: 1000;
 }
 
 #auth-widget a {

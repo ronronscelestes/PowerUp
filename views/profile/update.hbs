@@ -1,20 +1,30 @@
+<video id="videoBG" autoplay muted loop>
+    <source src="/images/BGtest.mp4" type="video/mp4">
+</video>
+
+<video id="videoBG" autoplay muted loop>
+    <source src="/images/BGtest.mp4" type="video/mp4">
+</video>
+
 <div id="all-container">
-    <div id="update-profile-container">
-        <h1>Update your account below</h1>
+    <div id="signup-container">
+        <p>you want to change your password?</p>
+        <a href="/profile/update-password">click here to update it<img id="sign-in-icon" src="/images/auth-arrow.svg" alt=""></a>
+        
+        <h1>update</h1>
 
         <form action="/profile/update" method="POST">
+
             <label for="mail">email address</label>
-            <input name="mail" id="mail" type="email" value="{{user.mail}}">
+            <input name="mail" id="mail" type="email" placeholder="catch-em-all@pokemon.com" value="{{user.mail}}">
 
             <label for="username">your username</label>
-            <input name="username" id="username" type="text"  value="{{user.username}}">
+            <input name="username" id="username" type="text" placeholder="Sacha" value="{{user.username}}">
 
             <button>
                 <img src="/images/create-user-icon.svg" alt="">
-                Update account
+                confirm
             </button>
         </form>
-        <a href="/profile/update-password">Update Password here</a>
-
     </div>
 </div>

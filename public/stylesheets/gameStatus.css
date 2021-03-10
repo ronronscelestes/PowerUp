@@ -1,0 +1,52 @@
+.status-list {
+    position: absolute;
+    bottom: -150px;
+    left: 0;
+    width: 190px;
+    background-color: rgba(18, 21, 46, 0.98);
+    padding: 10px 14px;
+    border-radius: 12px;
+    z-index: 100;
+    filter: blur(4px);
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: top left;
+    transition: all 0.3s cubic-bezier(.17,.67,.36,.99);
+}
+.is-visible {
+    transform: scale(1);
+    opacity: 1;
+    filter: none;
+}
+
+.status-list > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px;
+    margin-bottom: 5px;   
+}
+.status-list label {
+    font-size: 14px;
+    margin-left: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.status-list button {
+    background-color: transparent;
+    outline: 0;
+    padding: 4px 15px;
+    border: 1px solid #C0C2F5;
+    border-radius: 20px;
+    color: #C0C2F5;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.status-list button:hover {
+    
+    background-color: #C0C2F5;
+    color: rgb(18, 21, 46);
+    transition: all 0.2s ease-out   ;
+}

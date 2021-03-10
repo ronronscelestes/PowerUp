@@ -1,0 +1,51 @@
+#settings-container {
+    margin: 0 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+#videoBG {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    z-index: -1;
+}
+
+#settings-container h1 {
+    text-transform: uppercase;
+    font-family: 'DIN Pro 900';
+    font-size: 110px;
+    line-height: 84%;
+    letter-spacing: -0.02em;
+    color: #F0F0FF;
+    margin-bottom: 64px;
+}
+
+#settings-container h2 {
+    font-family: 'DIN Pro 400';
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #C0C2F5;
+    margin-bottom: 8px;
+    margin-left: 8px;
+}
+
+#settings-container a {
+    font-family: 'DIN Pro 400';
+    list-style-type : none;
+    text-transform: uppercase;
+    font-size: 32px;
+    line-height: 100%;
+    cursor: pointer;
+    color: rgba(240, 240, 255, 0.5);
+    text-decoration: none;
+    margin-bottom: 14px;
+}
+
+#settings-container a:hover {
+    font-family: 'DIN Pro 900';
+    color: rgba(240, 240, 255, 1);
+    font-size: 36px;
+    line-height: 84%;
+}

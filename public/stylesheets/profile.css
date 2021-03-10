@@ -1,0 +1,47 @@
+#profile-text {
+    margin: 0 80px;
+}
+
+#username {
+    text-transform: uppercase;
+    font-family: 'DIN Pro 900';
+    font-size: 110px;
+    line-height: 84%;
+    letter-spacing: -0.02em;
+    color: #F0F0FF;
+    margin-bottom: 64px;
+}
+
+ul {
+    display: flex;
+}
+
+ul li {
+    font-family: 'DIN Pro 400';
+    list-style-type : none;
+    text-transform: uppercase;
+    font-size: 32px;
+    line-height: 100%;
+    cursor: pointer;
+    color: rgba(240, 240, 255, 0.5);
+    margin: 0 24px 64px 0;
+}
+
+h2 {
+    font-family: 'DIN Pro 400';
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #C0C2F5;
+    margin-bottom: 8px;
+}
+
+ul li, h2 {
+    margin-left: 8px;
+}
+
+.bigger-font-li {
+    font-family: 'DIN Pro 900';
+    color: #F0F0FF;
+    transition: all 0.2s ease-in-out;
+}

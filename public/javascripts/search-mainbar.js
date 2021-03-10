@@ -4,23 +4,23 @@ const results = dropDown.querySelectorAll(".result")
 
 
 
-//---------BARRE DE RECHERCHE ET RENVOIE VERS PAGES DE RESULTATS---------//
+//---------ANCIENNE BARRE DE RECHERCHE ET RENVOIE VERS PAGES DE RESULTATS---------//
 
 
-inputSearchMainBar.addEventListener("keypress", function (evt) {
-  if (evt.key === "Enter") {
-    const search = inputSearchMainBar.value;
-    let query = `?name=${search}`;
+// inputSearchMainBar.addEventListener("keypress", function (evt) {
+//   if (evt.key === "Enter") {
+//     const search = inputSearchMainBar.value;
+//     let query = `?name=${search}`;
 
-    axios
-      .get(`/games/search${query}`)
-      .then((dataRes) => {
-        window.location = `/games/search${query}`;
-        console.log(dataRes);
-      })
-      .catch((dataErr) => console.log(dataErr));
-  }
-});
+//     axios
+//       .get(`/games/search${query}`)
+//       .then((dataRes) => {
+//         window.location = `/games/search${query}`;
+//         console.log(dataRes);
+//       })
+//       .catch((dataErr) => console.log(dataErr));
+//   }
+// });
 
 //---------DROPDOWN---------//
 
@@ -61,4 +61,16 @@ inputSearchMainBar.onkeyup = (evt) => {
   if (evt.target.value.length < 3) resetSearchResult();
   else handleRead(evt, displaySearchResult);
 };
+
+
+
+
+
+//---------NOUVELLE BARRE DE RECHERCHE ET RENVOIE VERS PAGES DE RESULTATS---------//
+
+
+import {searchBar} from '/javascripts/search-navbar.js'
+
+searchBar(inputSearchMainBar, 'Enter', 'keypress')
+
 

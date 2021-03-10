@@ -22,7 +22,7 @@ router.get('/', (req, res, next)=> {
   // res.send(req.session.currentUser._id);
   let data = {
     js : ['profileAndGameStatus'],
-    css : ['card', 'allGames']
+    css : ['fonts', 'card', 'profileGames', 'profile']
   }
   res.render('profile/profile', data);
 });
@@ -51,16 +51,27 @@ router.get('/games', async(req, res, next)=>{
 
 });
 
+router.get('/settings', (req, res) => {
+  let data = {
+    css : ['settings']
+  }
+  res.render('profile/settings', data)
+})
+
 
 
 router.get('/update', async(req, res, next)=>{
-  const userInfo= await UserModel.findById(req.session.currentUser._id)
-  let data = {
-    css : ['update'],
-    user : userInfo
+  try {
+    const userInfo= await UserModel.findById(req.session.currentUser._id)
+    let data = {
+      css : ['auth'],
+      user : userInfo
+    }
+    
+    res.render('profile/update', data)
+  } catch(err) {
+    res.send('pas de user');
   }
-  
-res.render('profile/update', data)
 
 })
 
@@ -68,14 +79,13 @@ router.post('/update', (req, res, next)=>{
   const {mail, username}=req.body
   UserModel.findByIdAndUpdate(req.session.currentUser._id, {mail, username}, {new:true})
   .then((user)=> {
-    console.log(user)
     res.redirect('/profile')})
   .catch(next)
 })
 
 router.get('/update-password', (req, res, next)=>{
   let data = {
-  css : ['updatePassword'],
+  css : ['auth'],
 }
   res.render('profile/updatePassword', data)}
 )
