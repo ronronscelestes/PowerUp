@@ -20,13 +20,17 @@ const gameStatus = evt.target.name
     axios
     .patch(`/games/${idGame}?name=${gameStatus}`)
     .then((dataRes) => {
-        console.log(dataRes.data)}) 
+        console.log(dataRes.data)
+        console.log(evt.target)
+        giveBoxCheckedClass(dataRes.data, gameStatus, evt.target, idGame)}) 
     .catch((apiError) => console.log(apiError));
 }
 
-// function displayBoxChecked (){
-//     if 
-// }
+function giveCheckedBoxClass (data, gameStatus,checkBox, idGame){
+    if (data[`${gameStatus}`].includes(idGame)){
+        checkBox.classList.add('checkedBox')
+    }
+}
 
 //Faire un addEventlistener générique
 currentPlayCheckbox.addEventListener("change", ChangeGameStatus)
