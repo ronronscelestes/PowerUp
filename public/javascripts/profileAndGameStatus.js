@@ -19,7 +19,7 @@ const renderOneCat = gamesCat => {
     gamesCat.forEach(game => {
 
       genres = game.genres.map(genre => `<span class="tag-genre">${genre}</span>`).join("");
-      platforms = game.platforms.map(platform => `<span class="split-dash">${platform}</span>`).join("");
+      platforms = game.platforms.map(platform => `<span class="split-dash"> ${platform} </span>`).join("");
 
       gamesContainer.innerHTML += `
       <div id="card-container" style="background-image: url('${game.background_image}');">
