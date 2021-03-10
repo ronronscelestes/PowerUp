@@ -25,6 +25,21 @@ router.get("/search", async (req, res, next) => {
   }
 });
 
+router.get("/api", async (req, res, next) => {
+  try {
+    const gamesFound = await GameModel.find({
+      name: new RegExp(req.query.name, "i"),
+    }).sort({metacritic: 1}).limit(6)
+    res.status(200).json(gamesFound);
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
+});
+
+
+
+
 router.get("/:id", (req, res, next) => {
   GameModel.findById(req.params.id)
     .then((game) => {

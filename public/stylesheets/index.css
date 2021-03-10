@@ -101,7 +101,19 @@ body {
   outline: none;
   width: 100%;
   transition: width 0.2s ease-in;
+  
 }
 
 
 
+#drop-down{
+  list-style: none;
+  padding-left: 30px;
+  color: rgba(192, 194, 245, 0.4);
+  font-family: 'Din Pro 400';
+ 
+}
+
+#drop-down li{
+cursor: pointer;
+}
