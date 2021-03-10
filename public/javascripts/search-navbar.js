@@ -3,7 +3,21 @@
 const inputSearchNavBar = document.getElementById('small-search-input');
 const searchIcon = document.querySelector('#small-search-input + img');
 
+//make searchbar-navbar works as the main search bar
+export function searchBar(element, key, event) {
+    element.addEventListener(event, function (evt) {
+        if (evt.key === key) {
+            const search = element.value;
+            let query = `?name=${search}`;
+            window.location = `/games/search${query}`;
+            element.value = "";
+        }
+    })
+};
+
 if(inputSearchNavBar) {
+    searchBar(inputSearchNavBar, 'Enter', 'keypress');
+
     inputSearchNavBar.addEventListener('focus', () => {
         inputSearchNavBar.placeholder = 'Look for a game, genre...';
         searchIcon.style.display = 'none';
@@ -29,16 +43,5 @@ navBar.addEventListener('mouseleave', () => {
     authWidget.classList.add('hide');
 });
 
-export function searchBar(element, key, event) {
-    element.addEventListener(event, function (evt) {
-        if (evt.key === key) {
-            const search = element.value;
-            let query = `?name=${search}`;
-            window.location = `/games/search${query}`;
-            element.value = "";
-        }
-    })
-};
 
-searchBar(inputSearchNavBar, 'Enter', 'keypress')
 

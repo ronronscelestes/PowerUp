@@ -5,15 +5,22 @@ const liWantToPlay = document.getElementById('wantToPlay');
 const liAlreadyPlayed = document.getElementById('alreadyPlayed');
 const allLis = [liAll, liCurrentPlay, liWantToPlay, liAlreadyPlayed];
 
+// ${game.genres.map(genre => `<span class="tag-genre">${genre}</span>`)}
+
 let activeFilter = 'all';
 let allGamesData = [];
 let gamesToDisplay = [];
 let userName;
-
+let genres;
+let platforms;
 
 const renderOneCat = gamesCat => {
   if(gamesCat.length !== 0) {
     gamesCat.forEach(game => {
+
+      genres = game.genres.map(genre => `<span class="tag-genre">${genre}</span>`).join("");
+      platforms = game.platforms.map(platform => `<span class="split-dash">${platform}</span>`).join("");
+
       gamesContainer.innerHTML += `
       <div id="card-container" style="background-image: url('${game.background_image}');">
       <a href="/games/${game._id}">
@@ -24,10 +31,10 @@ const renderOneCat = gamesCat => {
           <div id="bottom-content">
             <h4 class="card-title">${game.name}</h4>
             <p class="card-genres">
-            ${game.genres.map(genre => `<span class="tag-genre">${genre}</span>`)}
+            ${genres}
             </p>
             <p class="card-platforms">
-            ${game.platforms.map(platform => `<span class="split-dash">${platform}</span>`)}
+            ${platforms}
             </p>
           </div>
       </div>
