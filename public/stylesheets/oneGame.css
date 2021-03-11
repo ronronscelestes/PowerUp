@@ -141,19 +141,18 @@ p {
 }
 
 .status-list input {
-    opacity: 0;
+    display: none;
 }
 
 .status-list > div {
     display: flex;
-    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     padding: 12px 24px; 
 }
 
 .status-list label {
     font-size: 14px;
-    margin-left: -18px;
     cursor: pointer;
     user-select: none;
 }

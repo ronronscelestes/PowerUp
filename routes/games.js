@@ -44,19 +44,60 @@ router.get("/api", async (req, res, next) => {
   }
 });
 
-router.get("/:id", (req, res, next) => {
-  GameModel.findById(req.params.id)
-    .then((game) => {
-      let data = {
-        game: game,
-        css: ["oneGame", "gameStatus"],
-        js: ["rating-color", "addCollection"],
-      };
 
-      res.render("games/oneGame", data);
-    })
-    .catch(next);
+router.get("/:id", async (req, res, next) => {
+  try {
+    const game = await GameModel.findById(req.params.id);
+
+    let currentPlay = false;
+    let wantToPlay = false;
+    let alreadyPlayed = false;
+    
+    if(req.session.currentUser) {
+      const user = await UserModel.findById(req.session.currentUser._id);
+  
+      user.currentPlay.forEach(currentPlayGame => {
+        if(currentPlayGame.toString() === req.params.id.toString()) currentPlay = true;
+      });
+  
+      user.wantToPlay.forEach(wantToPlayGame => {
+        if(wantToPlayGame.toString() === req.params.id.toString()) wantToPlay = true;
+      });
+  
+      user.alreadyPlayed.forEach(alreadyPlayedGame => {
+        if(alreadyPlayedGame.toString() === req.params.id.toString()) alreadyPlayed = true;
+      });
+    }
+
+
+    let data = {
+      currentPlay,
+      wantToPlay,
+      alreadyPlayed,
+      game: game,
+      css: ["oneGame", "gameStatus"],
+      js: ["rating-color", "addCollection"],
+    };
+    res.render("games/oneGame", data);
+    
+  } catch(err) {
+
+  }
 });
+
+// router.get("/:id", (req, res, next) => {
+//   GameModel.findById(req.params.id)
+//     .then((game) => {
+//       let data = {
+//         game: game,
+//         css: ["oneGame", "gameStatus"],
+//         js: ["rating-color", "addCollection"],
+//       };
+
+//       res.render("games/oneGame", data);
+//     })
+//     .catch(next);
+// });
 
 // router.post('/:id', (req, res, next)=>{
 //   let {currentPlay, alreadyPlayed,  wantToPlay}=req.body
