@@ -1,4 +1,8 @@
 #drop-down-searchbar {
+    position: absolute;
+    top: 100px;
+    z-index: 1000;
+    width: 100%;
     background: rgba(10, 13, 38, 0.8);
     backdrop-filter: blur(8px);
     border-radius: 12px;

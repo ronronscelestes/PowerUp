@@ -109,6 +109,7 @@ inputSearchMainBar.addEventListener('focus', () => {
 
 inputSearchMainBar.addEventListener('blur', () => {
   searchBarContainer.style.width = '80%';
+  dropDown.innerHTML = '';
 })
 
 

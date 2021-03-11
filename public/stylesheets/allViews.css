@@ -8,13 +8,16 @@ body {
     background-color: rgba(0, 3, 28, 1);
     color: rgba(192, 194, 245, 1);
 }
+
 a {
     text-decoration: none;
     color: #00031c;
 }
-a:hover {
-    text-decoration:underline;
+
+ul {
+    list-style-type: none;
 }
+
 #halo-bg {
     position: fixed;
     top: -30%;
