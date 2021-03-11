@@ -125,14 +125,20 @@ router.get("/:id", (req, res, next) => {
 // }
 
 router.patch("/:id",  (req, res, next) => {
+  console.log(req.session.currentUser);
+  // if (!req.session.currentUser) {
+  //   req.flash("login error", "Please login to add a game to your collection");
+  //   // res.redirect(`/games/${req.params.id}`)
+  // } else {
     if (req.query.name === 'currentPlay') {
       monPatch(req,res,  "currentPlay", "alreadyPlayed", "wantToPlay")
     } else if (req.query.name === 'alreadyPlayed') {
       monPatch(req, res, "alreadyPlayed", "wantToPlay", "currentPlay")
     } else if (req.query.name === 'wantToPlay' ) {
       monPatch(req, res, "wantToPlay", "currentPlay", "alreadyPlayed")
-
-}})
+    // }
+  }
+})
 
 
 //BON ROUTER QUI VA AVEC AXIOS

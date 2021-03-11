@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 const bcrypt = require('bcrypt');
 let UserModel= require('./../models/User.model')
+const protectPrivateRoute = require('./../middlewares/protectPrivateRoute')
 
 
 //we need to pass css data
@@ -18,7 +19,7 @@ let UserModel= require('./../models/User.model')
 //   .catch(next)
 // });
 
-router.get('/', (req, res, next)=> {
+router.get('/', protectPrivateRoute, (req, res, next)=> {
   // res.send(req.session.currentUser._id);
   let data = {
     js : ['profileAndGameStatus'],
@@ -28,7 +29,7 @@ router.get('/', (req, res, next)=> {
 });
 
 
-router.get('/games', async(req, res, next)=>{
+router.get('/games', protectPrivateRoute, async(req, res, next)=>{
   // console.log(req.session.currentUser._id);
 
   try {
@@ -51,7 +52,7 @@ router.get('/games', async(req, res, next)=>{
 
 });
 
-router.get('/settings', (req, res) => {
+router.get('/settings', protectPrivateRoute, (req, res) => {
   let data = {
     css : ['settings']
   }
@@ -60,7 +61,7 @@ router.get('/settings', (req, res) => {
 
 
 
-router.get('/update', async(req, res, next)=>{
+router.get('/update', protectPrivateRoute, async(req, res, next)=>{
   try {
     const userInfo= await UserModel.findById(req.session.currentUser._id)
     let data = {
@@ -75,7 +76,7 @@ router.get('/update', async(req, res, next)=>{
 
 })
 
-router.post('/update', (req, res, next)=>{
+router.post('/update', protectPrivateRoute, (req, res, next)=>{
   const {mail, username}=req.body
   UserModel.findByIdAndUpdate(req.session.currentUser._id, {mail, username}, {new:true})
   .then((user)=> {
@@ -83,14 +84,14 @@ router.post('/update', (req, res, next)=>{
   .catch(next)
 })
 
-router.get('/update-password', (req, res, next)=>{
+router.get('/update-password', protectPrivateRoute, (req, res, next)=>{
   let data = {
   css : ['auth'],
 }
   res.render('profile/updatePassword', data)}
 )
 
-router.post('/update-password', async(req, res, next)=>{
+router.post('/update-password', protectPrivateRoute, async(req, res, next)=>{
   let {formerPassword, newPassword}=req.body
   const User= await UserModel.findById(req.session.currentUser._id)
   const isSamePassword = bcrypt.compareSync(formerPassword, User.password);
@@ -109,7 +110,7 @@ router.post('/update-password', async(req, res, next)=>{
 )
 
 
-router.get("/delete", async (req, res, next) => {
+router.get("/delete", protectPrivateRoute, async (req, res, next) => {
   try {
     await UserModel.findByIdAndRemove(req.session.currentUser._id);
     req.flash("success", "Your account has been deleted !");
