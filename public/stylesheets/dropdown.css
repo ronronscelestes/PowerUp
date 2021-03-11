@@ -53,6 +53,7 @@
 }
 
 .db-game-name p {
+    color: #fff;
     font-family: 'Din Pro Cond 500';
     text-transform: capitalize  ;
     font-size: 40px;
@@ -67,6 +68,7 @@
 }
 
 .db-game-genres p {
+    color: #fff;
     font-family: 'Din Pro 400';
     font-size: 14px;
     line-height: 92%;
