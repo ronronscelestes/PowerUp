@@ -43,6 +43,7 @@
     
 }
 .rating {
+    font-family: 'DIN Pro 400';
     color: #fff;
     position: absolute;
     display: flex;

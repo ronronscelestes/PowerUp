@@ -36,8 +36,10 @@ router.get('/games', protectPrivateRoute, async(req, res, next)=>{
 
 });
 
-router.get('/settings', protectPrivateRoute, (req, res) => {
+router.get('/settings', protectPrivateRoute, async (req, res) => {
+  const user= await UserModel.findById(req.session.currentUser._id)
   let data = {
+    user : user,
     css : ['settings']
   }
   res.render('profile/settings', data)

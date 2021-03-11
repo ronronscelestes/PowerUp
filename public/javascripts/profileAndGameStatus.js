@@ -28,7 +28,7 @@ const renderOneCat = gamesCat => {
       <a href="/games/${game._id}">
       <div id="card-content">
           <div id="top-content">
-            <div class="rating"><p>${game.metacritic ? game.metacritic : `N/A`}</p></div>
+            ${game.metacritic ? `<div class="rating"><p>${game.metacritic}</p></div>` : ""}
           </div>
           <div id="bottom-content">
             <h4 class="card-title">${game.name}</h4>

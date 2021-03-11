@@ -1,5 +1,5 @@
 
-<video id="videoBG" autoplay muted loop>
+<video playsinline id="videoBG" autoplay muted loop>
     <source src="/images/BGtest.mp4" type="video/mp4">
 </video>
 
@@ -13,9 +13,9 @@
         <div id="username-form-container">
             <h3>username / email</h3>
             <p>username</p>
-            <p>michka</p>
+            <p>{{user.username}}</p>
             <p>email</p>
-            <p>test@mail</p>
+            <p>{{user.mail}}</p>
             <a href="/profile/update" id="edit-link">
                 <img src="/images/auth-arrow.svg" alt="">
                 <p>edit</p>
