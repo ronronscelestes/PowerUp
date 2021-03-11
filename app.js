@@ -32,13 +32,16 @@ app.use(
     ccookie: {maxAge: new Date(Date.now() + (30 * 86400 * 1000))} ,
     saveUninitialized: true,
     resave: true,
+  
   })
 );
 
-//Flash
+//Use Flash module
 app.use(flash());
-//Flash middleware
+//Use Flash middleware
 app.use(require("./middlewares/exposeFlashMessage"));
+
+
 
 //loginStatus accessible in templates
 app.use(require("./middlewares/exposeLoginStatus"));
@@ -47,7 +50,7 @@ const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const profileRoute = require('./routes/profile');
 const gamesRoute = require('./routes/games');
-const { profile } = require('console');
+// const { profile } = require('console');
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
