@@ -2,6 +2,7 @@
 
 <div id="game-container">
     <section id="left-col">
+        <button id="go-back-button">Go Back</button>
         <p >{{game.released}} <span>-</span> {{#each game.developers}} <span class="split-comma"> {{this}} </span>{{/each}}</p>
 
         <h1>{{game.name}}</h1>
@@ -23,21 +24,21 @@
                 
                 <div class="status-list is-hidden">
                     <div> 
-                        <input class="game-status currentPlay" data-game-id ={{game._id}} type="checkbox" name="currentPlay" value="currentPlay" id="currentPlay">
+                        <input class="game-status currentPlay" data-game-id ={{game._id}} type="checkbox" name="currentPlay" value="currentPlay" id="currentPlay" {{#if currentPlay}}checked{{/if}}>
                         <label for="currentPlay">Currently playing</label>
                         {{#if currentPlay}}
                             <img src="/images/checked-icon.svg" alt="">
                         {{/if}}
                     </div>
                     <div>
-                        <input class="game-status alreadyPlayed" data-game-id ={{game._id}} type="checkbox" name="alreadyPlayed" value="alreadyPlayed" id="alreadyPlayed">
+                        <input class="game-status alreadyPlayed" data-game-id ={{game._id}} type="checkbox" name="alreadyPlayed" value="alreadyPlayed" id="alreadyPlayed" {{#if alreadyPlayed}}checked{{/if}}>
                         <label for="alreadyPlayed">Completed</label>
                         {{#if alreadyPlayed}}
                             <img src="/images/checked-icon.svg" alt="">
                         {{/if}}
                     </div>
                     <div>
-                        <input class="game-status wantToPlay" data-game-id ={{game._id}} type="checkbox" name="wantToPlay" value="wantToPlay" id="wantToPlay">
+                        <input class="game-status wantToPlay" data-game-id ={{game._id}} type="checkbox" name="wantToPlay" value="wantToPlay" id="wantToPlay" {{#if wantToPlay}}checked{{/if}}>
                         <label for="wantToPlay">Want to play</label>
                         {{#if wantToPlay}}
                             <img src="/images/checked-icon.svg" alt="">

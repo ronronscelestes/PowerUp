@@ -6,6 +6,8 @@ const currentPlayCheckbox=document.querySelector(".game-status.currentPlay")
 const AlreadyPlayCheckbox=document.querySelector(".game-status.alreadyPlayed")
 const WantToPlayCheckbox=document.querySelector(".game-status.wantToPlay")
 
+
+//collection widget appears-disappears
 btnAddCollection.addEventListener('click', () => {
     formStatusList.classList.remove('is-hidden');
 })
@@ -21,21 +23,29 @@ checkboxes.forEach(box => {
     })
 })
 
-function giveCheckedBoxClass (data, gameStatus, clickedCheckBox, idGame){
-    if (data[`${gameStatus}`].includes(idGame)){
-        checkboxes.forEach(checkbox => {
+//remove any tick img from any checkbox that add one
+//add tick img to the checkbox that was clicked
+const img = document.createElement('img');
+img.src = '/images/checked-icon.svg';
+
+function updateTickCheckboxes(){
+    checkboxes.forEach(checkbox => {
+
+        if(!checkbox.checked) {
             if(checkbox.parentNode.children[2]) {
                 checkbox.parentNode.children[2].remove();
             }
-            if(checkbox === clickedCheckBox) {
-                let img = document.createElement('img');
-                img.src = '/images/checked-icon.svg';
-                checkbox.parentNode.appendChild(img);
-            };
-        })
-    }
+        } else if(checkbox.checked) {
+            checkbox.parentNode.appendChild(img);
+        }
+    })
+
 }
 
+
+//on checkbox click axios patch user collection to remove game from any user collection
+//then add it to one collection depending on which checkbox was clicked
+//call update tickCheckboxes
 function ChangeGameStatus(evt){
     const idGame = evt.target.getAttribute("data-game-id")
     const gameStatus = evt.target.name
@@ -43,12 +53,9 @@ function ChangeGameStatus(evt){
     axios
     .patch(`/games/${idGame}?name=${gameStatus}`)
     .then((dataRes) => {
-        console.log('Toto');
-        // console.log(dataRes.data);
-        // console.log(evt.target);
-        if (dataRes.data === "toto") window.location = `/games/${idGame}`;
 
-        giveCheckedBoxClass(dataRes.data, gameStatus, evt.target, idGame);
+        if (dataRes.data === "toto") window.location = `/games/${idGame}`;
+        updateTickCheckboxes();
     }) 
     .catch((apiError) => console.log(apiError));
 }
@@ -58,5 +65,12 @@ function ChangeGameStatus(evt){
 currentPlayCheckbox.addEventListener("change", ChangeGameStatus)
 AlreadyPlayCheckbox.addEventListener("change", ChangeGameStatus)
 WantToPlayCheckbox.addEventListener("change", ChangeGameStatus)
+
+
+
+//Back to results event
+const goBackButton = document.getElementById('go-back-button');
+goBackButton.addEventListener('click', () => window.history.back());
+
 
 

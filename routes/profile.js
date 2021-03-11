@@ -113,8 +113,10 @@ router.post('/update-password', protectPrivateRoute, async(req, res, next)=>{
 router.get("/delete", protectPrivateRoute, async (req, res, next) => {
   try {
     await UserModel.findByIdAndRemove(req.session.currentUser._id);
-    req.flash("success", "Your account has been deleted !");
-    res.redirect("/auth/signout");
+    req.session.destroy(err => {
+      res.redirect("/auth/signup");
+    });
+    
   } catch (err) {
     next(err);
   }
