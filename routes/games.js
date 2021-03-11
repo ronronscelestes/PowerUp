@@ -52,6 +52,9 @@ router.get("/:id", async (req, res, next) => {
   try {
     console.log("TOTO");
     const game = await GameModel.findById(req.params.id);
+    const gamesWithGenre= await GameModel.find({genres : game.genres})
+    console.log(game.genres)
+    fourRandomGames = await GameModel.find({genres : game.genres}).skip(Math.random()*(gamesWithGenre.length-1)).limit(4)
 
     let currentPlay = false;
     let wantToPlay = false;
@@ -78,8 +81,9 @@ router.get("/:id", async (req, res, next) => {
       currentPlay,
       wantToPlay,
       alreadyPlayed,
+      games:fourRandomGames,
       game: game,
-      css: ["oneGame", "gameStatus"],
+      css: ["oneGame", "gameStatus", "card", "allGames"],
       js: ["rating-color", "addCollection"],
     };
     res.render("games/oneGame", data);

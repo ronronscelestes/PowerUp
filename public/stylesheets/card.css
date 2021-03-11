@@ -43,6 +43,7 @@
     
 }
 .rating {
+    color: #fff;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -66,7 +67,7 @@ h4.card-title {
     margin-bottom: 18px;
     text-transform: uppercase;
 }
-p{
+#bottom-content p{
     color: #fff;
     font-family: 'Din Pro Cond 500';
 }
@@ -85,7 +86,7 @@ p{
     margin-right: 5px;
 }
 
-p.card-platforms {
+.card-platforms span {
     font-size: 14px;
     line-height: 15px;
     color: #C0C2F5;

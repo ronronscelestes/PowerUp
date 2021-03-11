@@ -123,6 +123,26 @@ p {
     margin-right: 10px;
 }
 
+#container-gallery-oneGame{
+    font-family: 'DIN Pro 400';
+    color: #fff;
+}
+
+#container-gallery-oneGame section{
+justify-content: center;
+
+}
+
+
+#container-gallery-oneGame h3 {
+    font-size: 50px;
+    color:white;
+    font-family: 'DIN Pro 500';
+    text-transform: uppercase;
+    margin: 0px 80px 30px ;
+
+}
+
 /* DEALING WITH GAMESTATUS  */
 
 .status-list {
