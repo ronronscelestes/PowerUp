@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    ccookie: {maxAge: new Date(Date.now() + (30 * 86400 * 1000))} ,
+    cookie: {maxAge: new Date(Date.now() + (30 * 86400 * 1000))} ,
     saveUninitialized: true,
     resave: true,
   

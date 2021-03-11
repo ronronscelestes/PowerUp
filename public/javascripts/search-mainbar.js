@@ -1,25 +1,3 @@
-//---------ANCIENNE BARRE DE RECHERCHE ET RENVOIE VERS PAGES DE RESULTATS---------//
-
-
-// inputSearchMainBar.addEventListener("keypress", function (evt) {
-//   if (evt.key === "Enter") {
-//     const search = inputSearchMainBar.value;
-//     let query = `?name=${search}`;
-
-//     axios
-//       .get(`/games/search${query}`)
-//       .then((dataRes) => {
-//         window.location = `/games/search${query}`;
-//         console.log(dataRes);
-//       })
-//       .catch((dataErr) => console.log(dataErr));
-//   }
-// });
-
-
-
-
-
 //---------DROPDOWN---------//
 
 const inputSearchMainBar = document.getElementById("main-search-bar");
@@ -91,21 +69,22 @@ function displaySearchResult(games) {
 
 }
 
-
-function handleRead(evt, callback) {
+//Handle function
+//creating an axios request with a fictive route 'api' in order to get the data without reloading the page.
+//passing the input of the searchbar in a query to access it in my route file
+function handleSearch(evt, callback) {
     axios
     .get(`/games/api?name=${evt.target.value}`)
-    .then((dataRes) => {
-        // console.log(dataRes.data) 
-        callback(dataRes.data)})
+    .then((games) => {
+        callback(games.data)})
     .catch((apiError) => console.log(apiError));
 }
 
 
 //eventListener
 inputSearchMainBar.onkeyup = (evt) => {
-  if (evt.target.value.length < 3) resetSearchResult();
-  else handleRead(evt, displaySearchResult);
+  if (evt.target.value.length < 3) resetSearchResult();//if the input in the search is shorter than 3 characters, we don't show any result in the dropdown/
+  else handleSearch(evt, displaySearchResult);
 };
 
 

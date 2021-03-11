@@ -61,7 +61,7 @@ function ChangeGameStatus(evt){
 }
 
 
-//Faire un addEventlistener générique
+//Eventlistener on checkboxes
 currentPlayCheckbox.addEventListener("change", ChangeGameStatus)
 AlreadyPlayCheckbox.addEventListener("change", ChangeGameStatus)
 WantToPlayCheckbox.addEventListener("change", ChangeGameStatus)
