@@ -8,9 +8,11 @@ export function searchBar(element, key, event) {
     element.addEventListener(event, function (evt) {
         if (evt.key === key) {
             const search = element.value;
-            let query = `?name=${search}`;
-            window.location = `/games/search${query}`;
-            element.value = "";
+            if (search.length >= 3) {
+                let query = `?name=${search}`;
+                window.location = `/games/search${query}`;
+                element.value = "";
+            }
         }
     })
 };

@@ -10,6 +10,9 @@ router.get("/", (req, res, next) => {
 
 router.get("/search", async (req, res, next) => {
   try {
+    if (!req.query.name ) {
+      res.redirect('/')
+    }
     const gamesFound = await GameModel.find({
       name: new RegExp(req.query.name, "i"),
     });

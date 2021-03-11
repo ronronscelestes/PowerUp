@@ -16,4 +16,4 @@ function updateDB(oldValue, newValue, keyVal) {
 }
 
 
-// updateDB('BoardGames', 'Boardgames', 'genres')
+//updateDB('Massively Multiplayer', 'MMO', 'genres')

@@ -16,6 +16,29 @@
     <ul id="drop-down-searchbar"></ul>
     {{!-- {{> gameCard}} --}}
 
+    <section class="genre-gallery">
+        <h4>RPG</h4>
+        <div id="card-gallery">
+            {{#each rpgGames}}
+                {{> gameCard}}
+            {{/each}}
+        </div>
+
+        <h4>SPORT</h4>
+        <div id="card-gallery">
+            {{#each sportGames}}
+                {{> gameCard}}
+            {{/each}}
+        </div>
+
+        <h4>ARCADE</h4>
+        <div id="card-gallery">
+            {{#each arcadeGames}}
+                {{> gameCard}}
+            {{/each}}
+        </div>
+    </section>
+
 </div>
 
 
