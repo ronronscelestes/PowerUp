@@ -2,22 +2,8 @@ let express = require('express');
 let router = express.Router();
 const bcrypt = require('bcrypt');
 let UserModel= require('./../models/User.model')
-const protectPrivateRoute = require('./../middlewares/protectPrivateRoute')
+const protectPrivateRoute = require('./../middlewares/protectPrivateRoute')//protecting every route of the profile path
 
-
-//we need to pass css data
-/* GET home page. */
-// router.get('/', (req, res, next)=> {
-//   UserModel.findById('60463007c32e21f0681ce165')
-//   .populate("currentPlay wantToPlay alreadyPlayed")
-//   .then((user)=>{
-//     // console.log("user currentplay", user.currentPlay)
-    
-//     // console.log("user:", user)
-//     res.render('profile/profile', { user });
-//   })
-//   .catch(next)
-// });
 
 router.get('/', protectPrivateRoute, (req, res, next)=> {
   let data = {
@@ -95,7 +81,6 @@ router.post('/update-password', protectPrivateRoute, async(req, res, next)=>{
   const isSamePassword = bcrypt.compareSync(formerPassword, User.password);
       if (!isSamePassword) {
         req.flash("error", "Your former password is not valid.");
-
         res.redirect('/profile/update-password');
       } 
       else {
@@ -107,11 +92,10 @@ router.post('/update-password', protectPrivateRoute, async(req, res, next)=>{
   }
 )
 
-
 router.get("/delete", protectPrivateRoute, async (req, res, next) => {
   try {
     await UserModel.findByIdAndRemove(req.session.currentUser._id);
-    req.session.destroy(err => {
+    req.session.destroy(err => {// We have to destroy the session here, otherwise we are not signed out.
       res.redirect("/auth/signup");
     });
     

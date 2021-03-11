@@ -14,6 +14,8 @@ let userName;
 let genres;
 let platforms;
 
+
+//This function display a category creating the HTML with DOM
 const renderOneCat = gamesCat => {
   if(gamesCat.length !== 0) {
     gamesCat.forEach(game => {
