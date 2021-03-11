@@ -83,7 +83,10 @@ function displaySearchResult(games) {
     })
 
   } else {
-    dropDown.innerHTML = `<li>sorry, no match found</li>`;
+    let li = document.createElement("li");
+    li.classList.add('no-match-found');
+    li.innerHTML = `sorry, no match found`;
+    dropDown.appendChild(li);
   }
 
 }

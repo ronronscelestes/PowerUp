@@ -8,13 +8,11 @@ const WantToPlayCheckbox=document.querySelector(".game-status.wantToPlay")
 
 btnAddCollection.addEventListener('click', () => {
     formStatusList.classList.toggle('is-visible');
-    
-    
 })
 
-formStatusList.addEventListener('mouseleave', () => {
-    formStatusList.classList.toggle('is-visible');
-})
+// formStatusList.addEventListener('mouseleave', () => {
+//     formStatusList.classList.toggle('is-visible');
+// })
 
 
 // Allow to tick only one checkbox at a time
@@ -25,14 +23,16 @@ checkboxes.forEach(box => {
 })
 
 function ChangeGameStatus(evt){
-const idGame=evt.target.getAttribute("data-game-id")
-const gameStatus = evt.target.name
+    const idGame = evt.target.getAttribute("data-game-id")
+    const gameStatus = evt.target.name
+    
     axios
     .patch(`/games/${idGame}?name=${gameStatus}`)
     .then((dataRes) => {
         console.log(dataRes.data)
         console.log(evt.target)
-        giveBoxCheckedClass(dataRes.data, gameStatus, evt.target, idGame)}) 
+        giveBoxCheckedClass(dataRes.data, gameStatus, evt.target, idGame)
+    }) 
     .catch((apiError) => console.log(apiError));
 }
 

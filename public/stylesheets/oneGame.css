@@ -62,8 +62,8 @@ p {
 .collection-block {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 5px 15px 5px 5px;
+    justify-content: center;
+    width: 232px;
     height: 48px;
     border-radius: 12px;
     background-color: rgba(18, 21, 46, 0.48);
@@ -80,6 +80,18 @@ p {
 .rating-block p,
 .collection-block p {
     font-size: 14px;
+}
+
+.add-collection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-collection img {
+    width: 20px;
+    height: 20px;
+    margin-right: 18px;
 }
 
 .rating {
@@ -111,6 +123,41 @@ p {
     margin-right: 10px;
 }
 
+/* DEALING WITH GAMESTATUS  */
+
+.status-list {
+    position: absolute;
+    top: 71px;
+    width: 100%;
+    background: rgba(18, 21, 46, 0.95);
+    padding: 4px 0;
+    border-radius: 12px;
+    z-index: 100;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, .56);
+}
+
+.is-hidden {
+    display: none;
+}
+
+.status-list input {
+    opacity: 0;
+}
+
+.status-list > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 24px; 
+}
+
+.status-list label {
+    font-size: 14px;
+    margin-left: -18px;
+    cursor: pointer;
+    user-select: none;
+}
+
 /* RIGHT SIDE  */
 
 #game-container aside {
@@ -139,7 +186,6 @@ p {
 
 #img-container {
     position: sticky;
-<<<<<<< HEAD
     top: 20%;
 }
 
@@ -179,8 +225,3 @@ p {
         margin-right: 0;
     }
 }
-=======
-    top: 55px;
-}
-
->>>>>>> 3ce6a0e1d5ca54ed09bd65b9b13f0bb20afdf15b

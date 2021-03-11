@@ -78,3 +78,14 @@
 .show-more-results {
     cursor: pointer;
 }
+
+.show-more-results, .no-match-found {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    font-family: 'DIN Pro 400';
+    color: #F0F0FF;
+    font-size: 20px;
+    line-height: 100%;
+    text-transform: uppercase;
+}
