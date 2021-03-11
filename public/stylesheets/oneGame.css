@@ -160,9 +160,9 @@ justify-content: center;
     display: none;
 }
 
-.status-list input {
+/* .status-list input {
     display: none;
-}
+} */
 
 .status-list > div {
     display: flex;
