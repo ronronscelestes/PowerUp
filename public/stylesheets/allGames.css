@@ -5,9 +5,6 @@ a {
     line-height: 16px;
     text-decoration: none;
 }
-a:hover {
-    text-decoration:underline;
-}
 
 #result-for {
     font-family: 'DIN Pro 400';
