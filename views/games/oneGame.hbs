@@ -20,24 +20,30 @@
                     <img src="/images/add-collection-icon.svg" alt="">
                     <p> ADD TO COLLECTION</p>
                 </div>
-                {{!-- {{#if isLoggedIn}} --}}
-                {{!-- <form class="status-list" method="POST" action="/games/{{game._id}}"> --}}
-                <div class="status-list">
+                
+                <div class="status-list is-hidden">
                     <div> 
                         <input class="game-status currentPlay" data-game-id ={{game._id}} type="checkbox" name="currentPlay" value="currentPlay" id="currentPlay">
                         <label for="currentPlay">Currently playing</label>
+                        {{#if currentPlay}}
+                            <img src="/images/checked-icon.svg" alt="">
+                        {{/if}}
                     </div>
                     <div>
                         <input class="game-status alreadyPlayed" data-game-id ={{game._id}} type="checkbox" name="alreadyPlayed" value="alreadyPlayed" id="alreadyPlayed">
                         <label for="alreadyPlayed">Completed</label>
+                        {{#if alreadyPlayed}}
+                            <img src="/images/checked-icon.svg" alt="">
+                        {{/if}}
                     </div>
                     <div>
                         <input class="game-status wantToPlay" data-game-id ={{game._id}} type="checkbox" name="wantToPlay" value="wantToPlay" id="wantToPlay">
                         <label for="wantToPlay">Want to play</label>
+                        {{#if wantToPlay}}
+                            <img src="/images/checked-icon.svg" alt="">
+                        {{/if}}
                     </div>
                 </div>
-                {{!-- </form> --}}
-                {{!-- {{/if }} --}}
             </div>
         
         </div>

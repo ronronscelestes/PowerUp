@@ -7,13 +7,12 @@ const AlreadyPlayCheckbox=document.querySelector(".game-status.alreadyPlayed")
 const WantToPlayCheckbox=document.querySelector(".game-status.wantToPlay")
 
 btnAddCollection.addEventListener('click', () => {
-    formStatusList.classList.toggle('is-visible');
+    formStatusList.classList.remove('is-hidden');
 })
 
-// formStatusList.addEventListener('mouseleave', () => {
-//     formStatusList.classList.toggle('is-visible');
-// })
-
+formStatusList.addEventListener('mouseleave', () => {
+    formStatusList.classList.add('is-hidden');
+})
 
 // Allow to tick only one checkbox at a time
 checkboxes.forEach(box => {
@@ -22,6 +21,21 @@ checkboxes.forEach(box => {
     })
 })
 
+function giveCheckedBoxClass (data, gameStatus, clickedCheckBox, idGame){
+    if (data[`${gameStatus}`].includes(idGame)){
+        checkboxes.forEach(checkbox => {
+            if(checkbox.parentNode.children[2]) {
+                checkbox.parentNode.children[2].remove();
+            }
+            if(checkbox === clickedCheckBox) {
+                let img = document.createElement('img');
+                img.src = '/images/checked-icon.svg';
+                checkbox.parentNode.appendChild(img);
+            };
+        })
+    }
+}
+
 function ChangeGameStatus(evt){
     const idGame = evt.target.getAttribute("data-game-id")
     const gameStatus = evt.target.name
@@ -29,18 +43,16 @@ function ChangeGameStatus(evt){
     axios
     .patch(`/games/${idGame}?name=${gameStatus}`)
     .then((dataRes) => {
-        console.log(dataRes.data)
-        console.log(evt.target)
-        giveBoxCheckedClass(dataRes.data, gameStatus, evt.target, idGame)
+        console.log('Toto');
+        // console.log(dataRes.data);
+        // console.log(evt.target);
+        if (dataRes.data === "toto") window.location = `/games/${idGame}`;
+
+        giveCheckedBoxClass(dataRes.data, gameStatus, evt.target, idGame);
     }) 
     .catch((apiError) => console.log(apiError));
 }
 
-function giveCheckedBoxClass (data, gameStatus,checkBox, idGame){
-    if (data[`${gameStatus}`].includes(idGame)){
-        checkBox.classList.add('checkedBox')
-    }
-}
 
 //Faire un addEventlistener générique
 currentPlayCheckbox.addEventListener("change", ChangeGameStatus)
