@@ -8,7 +8,7 @@ const protectPrivateRoute = require('./../middlewares/protectPrivateRoute')//pro
 router.get('/', protectPrivateRoute, (req, res, next)=> {
   let data = {
     js : ['profileAndGameStatus'],
-    css : ['fonts', 'card', 'profileGames', 'profile']
+    css : ['fonts', 'card', 'profile']
   }
   res.render('profile/profile', data);
 });

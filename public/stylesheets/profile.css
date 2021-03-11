@@ -45,3 +45,32 @@ ul li, h2 {
     color: #F0F0FF;
     transition: all 0.2s ease-in-out;
 }
+
+#card-gallery {
+    margin: 0 80px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#card-container {
+    min-width: 300px;
+    margin: 0 28px 48px 0;
+}
+
+@media only screen and (max-width: 1040px) {
+    #username {
+        font-size: 55px;
+        line-height: 84%;
+    }
+
+    ul {
+        flex-direction: column;
+    }
+    
+    ul li {
+        font-size: 24px;
+        line-height: 0;
+        color: rgba(240, 240, 255, 0.5);
+        margin: 0 10px 40px 0;
+    }
+}
