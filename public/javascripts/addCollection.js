@@ -28,8 +28,7 @@ checkboxes.forEach(box => {
 const img = document.createElement('img');
 img.src = '/images/checked-icon.svg';
 
-function updateTickCheckboxes(data, gameStatus, clickedCheckBox, idGame){
-    //data === user
+function updateTickCheckboxes(){
     checkboxes.forEach(checkbox => {
 
         if(!checkbox.checked) {
@@ -54,7 +53,9 @@ function ChangeGameStatus(evt){
     axios
     .patch(`/games/${idGame}?name=${gameStatus}`)
     .then((dataRes) => {
-        updateTickCheckboxes(dataRes.data, gameStatus, evt.target, idGame);
+
+        if (dataRes.data === "toto") window.location = `/games/${idGame}`;
+        updateTickCheckboxes();
     }) 
     .catch((apiError) => console.log(apiError));
 }

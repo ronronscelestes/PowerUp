@@ -47,7 +47,11 @@ router.get("/api", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
+    console.log("TOTO");
     const game = await GameModel.findById(req.params.id);
+    const gamesWithGenre= await GameModel.find({genres : game.genres})
+    console.log(game.genres)
+    fourRandomGames = await GameModel.find({genres : game.genres}).skip(Math.random()*(gamesWithGenre.length-1)).limit(4)
 
     let currentPlay = false;
     let wantToPlay = false;
@@ -74,8 +78,9 @@ router.get("/:id", async (req, res, next) => {
       currentPlay,
       wantToPlay,
       alreadyPlayed,
+      games:fourRandomGames,
       game: game,
-      css: ["oneGame", "gameStatus"],
+      css: ["oneGame", "gameStatus", "card", "allGames"],
       js: ["rating-color", "addCollection"],
     };
     res.render("games/oneGame", data);
@@ -166,14 +171,21 @@ router.get("/:id", async (req, res, next) => {
 // }
 
 router.patch("/:id",  (req, res, next) => {
+  console.log(req.session.currentUser);
+  if (!req.session.currentUser) {
+    req.flash("login error", "Please login to add a game to your collection");
+    res.send("toto");
+  } 
+  else {
     if (req.query.name === 'currentPlay') {
       monPatch(req,res,  "currentPlay", "alreadyPlayed", "wantToPlay")
     } else if (req.query.name === 'alreadyPlayed') {
       monPatch(req, res, "alreadyPlayed", "wantToPlay", "currentPlay")
     } else if (req.query.name === 'wantToPlay' ) {
       monPatch(req, res, "wantToPlay", "currentPlay", "alreadyPlayed")
-
-}})
+    }
+  }
+})
 
 
 //BON ROUTER QUI VA AVEC AXIOS

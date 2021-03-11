@@ -22,7 +22,7 @@ hbs.registerPartials(__dirname + "/views/partials");
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(cookieParser());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //session again
@@ -47,12 +47,13 @@ const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const profileRoute = require('./routes/profile');
 const gamesRoute = require('./routes/games');
-
+const { profile } = require('console');
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/profile', profileRoute);
 app.use('/games', gamesRoute);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
