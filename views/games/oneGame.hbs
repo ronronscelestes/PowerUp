@@ -2,14 +2,17 @@
 
 <div id="game-container">
     <section id="left-col">
-        <button id="go-back-button">Go Back</button>
+        <div id="go-back-container">
+            <img src="/images/arrow-icon.svg" alt="">
+            <button id="go-back-button">Go Back</button>
+        </div>
         <p >{{game.released}} <span>-</span> {{#each game.developers}} <span class="split-comma"> {{this}} </span>{{/each}}</p>
 
         <h1>{{game.name}}</h1>
         {{> flash_message }}
         <div id="ratings-status">
             {{#if game.metacritic}}
-             <div class="rating-block" >
+            <div class="rating-block" >
                 <span class="rating">
                     <p>{{game.metacritic}}</p>
                 </span>

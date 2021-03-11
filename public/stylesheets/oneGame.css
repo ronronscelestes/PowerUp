@@ -17,6 +17,7 @@
 p {
     font-size: 16px;
     line-height: 24px;
+    user-select: none;
 }
 
 #game-container {
@@ -41,12 +42,46 @@ p {
     content: '-';
 }
 
+#go-back-container {
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+#go-back-container img {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}
+
+#go-back-container button {
+    background-color: transparent;
+    border: none;
+    text-transform: uppercase;
+    font-family: 'DIN Pro 400';
+    font-size: 20px;
+    line-height: 100%;
+    color: #F0F0FF;
+    cursor: pointer;
+}
+
+
+#go-back-container button:hover {
+    color: #C0C2F5;
+}
+
+#go-back-container button:focus {
+    outline: none;
+}
+
 #game-container section h1 {
     font-size: 75px;
     font-family: 'DIN Pro 900';
     text-transform: uppercase;
     line-height: 75px;
     margin: 30px 0;
+    user-select: none;
 }
 
 #ratings-status {
@@ -58,28 +93,38 @@ p {
     pointer-events: none;
 }
 
+.game-description p {
+    user-select:all;
+}
+
 .rating-block,
 .collection-block {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 232px;
     height: 48px;
     border-radius: 12px;
     background-color: rgba(18, 21, 46, 0.48);
     margin-right: 25px;
 }
 
+.rating-block span {
+    margin-left: 4px;
+}
+
+.rating-block p:nth-child(2) {
+    margin-right: 16px;
+}
+
 .collection-block {
     position: relative;
     padding: 5px 15px;
     cursor: pointer;
-
 }
 
 .rating-block p,
 .collection-block p {
     font-size: 14px;
+    white-space: nowrap;
 }
 
 .add-collection {
@@ -128,6 +173,7 @@ p {
 .status-list {
     position: absolute;
     top: 71px;
+    left: 0;
     width: 100%;
     background: rgba(18, 21, 46, 0.95);
     padding: 4px 0;
@@ -140,9 +186,9 @@ p {
     display: none;
 }
 
-/* .status-list input {
+.status-list input {
     display: none;
-} */
+}
 
 .status-list > div {
     display: flex;
@@ -222,5 +268,14 @@ p {
 
     #left-col {
         margin-right: 0;
+    }
+
+    #ratings-status {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .rating-block {
+        margin-bottom: 18px;
     }
 }

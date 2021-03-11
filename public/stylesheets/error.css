@@ -1,0 +1,45 @@
+#error-container {
+    height: calc( 100vh - 164px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 80px;
+}
+
+#error-container h1 {
+    font-family: 'DIN Pro 900';
+    font-size: 110px;
+    line-height: 84%;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #F0F0FF;
+    margin-bottom: 16px;
+}
+
+#error-container h2, #back-home-container a {
+    font-family: 'DIN Pro 400';
+}
+
+#error-container h2 {
+    font-size: 32px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #C0C2F5;
+    margin-bottom: 64px;
+}
+
+#back-home-container {
+    display: flex;
+}
+
+#back-home-container img {
+    margin-right: 24px;
+}
+
+#back-home-container a {
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #F0F0FF;
+    text-decoration: none;
+}
