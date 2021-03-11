@@ -8,6 +8,7 @@ a {
 a:hover {
     text-decoration:underline;
 }
+
 #result-for {
     font-family: 'DIN Pro 400';
     color: rgba(192, 194, 245, 1);
@@ -24,14 +25,8 @@ a:hover {
     text-transform: uppercase;
     color: #F0F0FF;
     margin-bottom: 64px;
+    user-select: none;
 }
-
-/* à ajouter si on trouve une solution viable avec grid */
-/* #card-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-} */
 
 #card-gallery {
     display: flex;

@@ -20,7 +20,6 @@ const protectPrivateRoute = require('./../middlewares/protectPrivateRoute')
 // });
 
 router.get('/', protectPrivateRoute, (req, res, next)=> {
-  // res.send(req.session.currentUser._id);
   let data = {
     js : ['profileAndGameStatus'],
     css : ['fonts', 'card', 'profileGames', 'profile']
@@ -30,7 +29,6 @@ router.get('/', protectPrivateRoute, (req, res, next)=> {
 
 
 router.get('/games', protectPrivateRoute, async(req, res, next)=>{
-  // console.log(req.session.currentUser._id);
 
   try {
     if(req.session.currentUser._id) {
@@ -71,7 +69,7 @@ router.get('/update', protectPrivateRoute, async(req, res, next)=>{
     
     res.render('profile/update', data)
   } catch(err) {
-    res.send('pas de user');
+    next(err);
   }
 
 })
