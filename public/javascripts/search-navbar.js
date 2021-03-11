@@ -7,8 +7,8 @@ const searchIcon = document.querySelector('#small-search-input + img');
 export function searchBar(element, key, event) {
     element.addEventListener(event, function (evt) {
         if (evt.key === key) {
-            const search = element.value;
-            if (search.length >= 3) {
+            const search = element.value; 
+            if (search.length >= 3) {  // disable search under 3 characters 
                 let query = `?name=${search}`;
                 window.location = `/games/search${query}`;
                 element.value = "";
