@@ -9,6 +9,7 @@
     top: 0; 
     left: 0;
     z-index: -1;
+    width: 100vw;
 }
 
 #settings-container h1 {
@@ -31,21 +32,121 @@
     margin-left: 8px;
 }
 
-#settings-container a {
-    font-family: 'DIN Pro 400';
-    list-style-type : none;
+#settings-container h3 {
+    font-family: 'DIN Pro 900';
+    font-size: 40px;
+    line-height: 84%;
+    letter-spacing: -0.02em;
     text-transform: uppercase;
-    font-size: 32px;
-    line-height: 100%;
-    cursor: pointer;
-    color: rgba(240, 240, 255, 0.5);
-    text-decoration: none;
-    margin-bottom: 14px;
+    color: #FFFFFF;
+    margin-bottom: 56px;
 }
 
-#settings-container a:hover {
-    font-family: 'DIN Pro 900';
-    color: rgba(240, 240, 255, 1);
-    font-size: 36px;
-    line-height: 84%;
+#both-forms-containers {
+    display: flex;
 }
+
+#username-form-container, #password-form-container {
+    width: 50%;
+    height: 500px;
+    background-color: rgba(16, 20, 54, 1);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.56);
+    border-radius: 24px;
+    padding: 56px;
+    margin-bottom: 32px;
+}
+
+#username-form-container p:nth-child(2), #username-form-container p:nth-child(4), #password-form-container p:nth-child(2){
+    font-family: 'DIN Pro Cond 500';
+    font-size: 14px;
+    line-height: 92%;
+    text-transform: uppercase;
+    color: #C0C2F5;
+}
+
+#username-form-container p:nth-child(3), #username-form-container p:nth-child(5) {
+    font-family: 'DIN Pro 400';
+    font-size: 18px;
+    line-height: 134%;
+    color: rgba(192, 194, 245, 0.4);
+    margin-bottom: 44px;
+    margin-top: 28px;
+}
+
+#password-form-container input {
+    background-color: transparent;
+    border: none; 
+    margin-top: 28px;
+    margin-bottom: 44px;
+}
+
+#username-form-container {
+    margin-right: 28px;
+}
+
+#edit-link {
+    display: flex;
+    justify-content: center;
+}
+
+#edit-link {
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    background: rgba(192, 194, 245, 0.2);
+    border-radius: 12px;
+}
+
+#edit-link p {
+    font-family: 'DIN Pro 400' !important;
+    font-size: 16px !important;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #F0F0FF;
+}
+
+#edit-link img {
+    margin-right: 24px;
+}
+
+#delete-container {
+    background-color: rgba(16, 20, 54, 1);
+    padding: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.28);
+    border-radius: 24px;
+    margin-bottom: 80px;
+}
+
+#delete-container h3 {
+    margin: 0;
+}
+
+#delete-link {
+    background-color: rgba(192, 194, 245, 0.2);
+    width: 260px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+
+#delete-link p {
+    font-family: 'DIN Pro 400' !important;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #F0F0FF;
+    font-size: 16px;
+}
+
+#delete-link img {
+    margin-right: 24px;
+}
+
+
+

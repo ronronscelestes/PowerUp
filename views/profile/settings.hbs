@@ -1,12 +1,42 @@
+
 <video id="videoBG" autoplay muted loop>
     <source src="/images/BGtest.mp4" type="video/mp4">
 </video>
+
+
 
 <div id="settings-container">
     <h2>your account</h2>
     <h1>settings</h1>
 
-    <a href="/profile/update">update username / mail</a>
-    <a href="/profile/update-password">update password</a>
-    <a href="/profile/delete">delete your account</a>
+    <div id="both-forms-containers">
+        <div id="username-form-container">
+            <h3>username / email</h3>
+            <p>username</p>
+            <p>michka</p>
+            <p>email</p>
+            <p>test@mail</p>
+            <a href="/profile/update" id="edit-link">
+                <img src="/images/auth-arrow.svg" alt="">
+                <p>edit</p>
+            </a>
+        </div>
+        <div id="password-form-container">
+            <h3>password</h3>
+            <p>password</p>
+            <input type="password" value="helloyou" disabled>
+            <a href="/profile/update-password" id="edit-link">
+                <img src="/images/auth-arrow.svg" alt="">
+                <p>change password</p>
+            </a>
+        </div>
+    </div>
+
+    <div id="delete-container">
+        <h3>delete your account</h3>
+        <a id="delete-link">
+            <img src="/images/auth-arrow.svg" alt="">
+            <p href="/profile/delete">delete account</p>
+        </a>
+    </div>
 </div>

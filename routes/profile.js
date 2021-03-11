@@ -69,7 +69,7 @@ router.get('/update', protectPrivateRoute, async(req, res, next)=>{
     
     res.render('profile/update', data)
   } catch(err) {
-    res.send('pas de user');
+    next(err);
   }
 
 })
