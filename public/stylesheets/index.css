@@ -120,6 +120,18 @@ body {
 cursor: pointer;
 }
 
+/* GAME GALLERY */
+.genre-gallery {
+  margin-top: 140px;
+}
+.genre-gallery h4 {
+  font-size: 40px;
+  font-family: 'Din Pro 900';
+  color: #fff;
+  line-height: 40px;
+  margin: 35px 0;
+}
+
 @media only screen and (max-width: 700px) {
   #title-home-container h1 {
     font-size: 45px;
