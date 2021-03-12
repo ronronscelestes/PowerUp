@@ -2,14 +2,13 @@
   padding: 12px;
   font-family: 'Din Pro 400';
   border-radius: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
   text-transform: uppercase;
   text-align:center;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
-  
 }
 
 .msg.error {
@@ -18,6 +17,11 @@
   border: 1px solid #F55858;
   box-sizing: border-box;
   backdrop-filter: blur(8px);
+}
+
+.msg.error a {
+  color: #F55858;
+  text-decoration: underline;
 }
 
 .msg.success {

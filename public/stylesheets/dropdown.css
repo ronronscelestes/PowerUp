@@ -13,7 +13,7 @@
 .db-game-link {
     display: flex;
     justify-content: space-between;
-    padding: 16px 20px;
+    padding: 6px 6px;
     text-decoration: none;
 }
 
@@ -23,12 +23,17 @@
     border-radius: 12px;
 }
 
+.db-game-link:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+}
+
 .dp-img-container {
     position: relative;
-    min-width: 95px;
-    min-height: 95px;
-    width: 95px;
-    height: 95px;
+    min-width: 80px;
+    min-height: 80px;
+    width: 80px;
+    height: 80px;
     background-position: center;
     background-size: cover;
     border-radius: 8px;
@@ -56,9 +61,10 @@
     color: #fff;
     font-family: 'Din Pro Cond 500';
     text-transform: capitalize  ;
-    font-size: 40px;
+    font-size: 32px;
     line-height: 100%;
     margin: 0 0 4px 32px;
+    color: white;
 }
 
 .db-game-genres {
@@ -79,6 +85,7 @@
     border: 1px solid rgba(192, 194, 245, 0.4);
     border-radius: 20px;
     margin-right: 5px;
+    color: white;
 }
 
 .show-more-results {
