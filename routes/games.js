@@ -85,7 +85,7 @@ router.get("/:id", async (req, res, next) => {
     res.render("games/oneGame", data);
     
   } catch(err) {
-
+    next(err);
   }
 });
 

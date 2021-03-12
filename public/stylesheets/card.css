@@ -71,6 +71,7 @@ h4.card-title {
 #bottom-content p{
     color: #fff;
     font-family: 'Din Pro Cond 500';
+    word-wrap: break-word;
 }
 
 .card-genres {
@@ -85,6 +86,7 @@ h4.card-title {
     color: #C0C2F5;
     border-radius: 20px;
     margin-right: 5px;
+    white-space: nowrap;
 }
 
 .card-platforms span {
