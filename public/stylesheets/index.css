@@ -122,13 +122,14 @@ cursor: pointer;
 
 /* GAME GALLERY */
 .genre-gallery {
-  margin-top: 140px;
+  margin-top: 60px;
 }
+
 .genre-gallery h4 {
-  font-size: 40px;
-  font-family: 'Din Pro 900';
-  color: #fff;
-  line-height: 40px;
+  font-size: 24px;
+  font-family: 'Din Pro 400';
+  color: rgba(192, 194, 245, 1);
+  line-height: 32px;
   margin: 35px 0;
 }
 

@@ -24,9 +24,9 @@ router.get('/', async (req, res, next) => {
       return newArr;
     }
 
-    const shuffleRpgGames = shuffleGamesAndPickFour(gamesArcade);
+    const shuffleRpgGames = shuffleGamesAndPickFour(gamesRpg);
     const shuffleSportsGames = shuffleGamesAndPickFour(gamesSport);
-    const shuffleArcadeGames = shuffleGamesAndPickFour(gamesRpg);
+    const shuffleArcadeGames = shuffleGamesAndPickFour(gamesArcade);
     
     let data = {
       css: ['index', 'card', 'allGames'],

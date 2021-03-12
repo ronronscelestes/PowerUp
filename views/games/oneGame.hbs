@@ -9,7 +9,6 @@
         <p >{{game.released}} <span>-</span> {{#each game.developers}} <span class="split-comma"> {{this}} </span>{{/each}}</p>
 
         <h1>{{game.name}}</h1>
-        {{> flash_message }}
         <div id="ratings-status">
             {{#if game.metacritic}}
             <div class="rating-block" >
@@ -51,6 +50,7 @@
             </div>
         
         </div>
+        {{> flash_message }}
         
 
         <div class="game-description">{{{game.description}}}</div>

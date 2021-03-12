@@ -9,6 +9,7 @@
     background-position: center;
     background-size: cover;
     max-width: 300px;
+    min-width: 300px;
     height: 400px;
     max-height: 400px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.28);
@@ -66,7 +67,6 @@ h4.card-title {
     font-size: 40px;
     line-height: 42px;
     margin-bottom: 18px;
-    text-transform: uppercase;
 }
 #bottom-content p{
     color: #fff;
