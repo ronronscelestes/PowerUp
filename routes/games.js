@@ -16,7 +16,7 @@ router.get("/search", async (req, res, next) => {
     const gamesFound = await GameModel.find({
       name: new RegExp(req.query.name, "i"),  // Creation of a regEx to make the search input non sensitive
     });
-   
+    
     gamesFound.sort((a, b) => b.metacritic - a.metacritic); //sort games by rates
    
     let data = {
