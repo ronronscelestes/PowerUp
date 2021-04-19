@@ -22,7 +22,7 @@ Made by :
 
 ☞ HBS, CSS, JS
 
-☞ NodeJS, Express
+☞ Node.js, Express.js, MongoDB
 
 
 ## Visit our website
